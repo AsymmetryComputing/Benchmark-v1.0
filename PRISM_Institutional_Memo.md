@@ -1036,7 +1036,7 @@ The 100k request executed at `n_eff=75,257` due to eligibility at `min_points=40
 #### D.5.4 Appendix-Only: Mac M2 vs RTX 4000 Ada (Small-N, Apples-to-Apples)
 This is cross-platform context, not a moat proof. At small and mid-size problems, fixed GPU overhead can dominate; PRISM should route these cases to CPU. At the production gate (5,000 assets, real-data scenarios), the GPU path is superior as shown in A1.
 
-| scenario | n_assets | mac_cpu_p50_ms | rtx_cpu_p50_ms | rtx_gpu_wall_p50_ms | rtx_gpu_over_rtx_cpu | rtx_gpu_over_mac_cpu |
+| scenario | n_assets | mac_cpu_p50_ms | intel_cpu_p50_ms | rtx_gpu_wall_p50_ms | rtx_gpu_over_intel_cpu | rtx_gpu_over_mac_cpu |
 | -------- | -------- | -------------- | -------------- | ------------------- | -------------------- | -------------------- |
 | baseline | 5000     | 19.195         | 22.167         | 162.539             | 7.332                | 8.468                |
 | baseline | 10000    | 39.484         | 46.858         | 171.586             | 3.662                | 4.346                |
