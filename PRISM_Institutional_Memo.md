@@ -107,7 +107,7 @@ Every headline number in this memo is falsifiable. Numbers outside the claim bou
 ### Executive Briefing Pack
 Select the briefing most relevant to your role. Each page summarizes PRISM's value proposition from a different operational perspective.
 
-!INCLUDE PRISM_Cover_Sheets.md
+<!-- !INCLUDE PRISM_Cover_Sheets.md -->
 
 ## 2. The Problem
 ### The Batch Optimization Bottleneck
