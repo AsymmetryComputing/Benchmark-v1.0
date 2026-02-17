@@ -1,7 +1,7 @@
 {
   "as_of": "2026-02-15",
   "kind": "PRISM_REAL_INPUT_SOLVE_PROOF",
-  "cache_path": "/tmp/prism_price_cache.pkl",
+  "cache_path": "prism_price_cache.pkl",
   "runs": [
     {
       "requested_n": 5000,

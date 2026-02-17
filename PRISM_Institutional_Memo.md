@@ -306,7 +306,7 @@ Primary artifacts:
 - `datasets/us_common_universe_20260216_summary.json`
 
 Measurement setup (one line):
-- Requested sizes `N={20000,50000,100000}` under hard config (warmup=1, timed=5), with CPU thread policy pinned (`OMP_NUM_THREADS=4`, `OPENBLAS_NUM_THREADS=4`).
+- Requested sizes `N={20000,50000,100000}` under hard solver configuration (warmup=1, timed=5), with CPU thread policy pinned (`OMP_NUM_THREADS=4`, `OPENBLAS_NUM_THREADS=4`). Internal solver parameters are not disclosed (black-box safe).
 
 Strict universe scope:
 - Universe policy: `us_common` (NYSE/NASDAQ common equities from current cache intersection).
@@ -457,12 +457,16 @@ curl -X POST https://prism.asymmetrycomputing.com/v1/solve \
 curl https://prism.asymmetrycomputing.com/v1/audit/{solve_id}
 ```
 
-#### Step 4: Call the API (any language / tool)
-```bash
-curl -X POST https://prism.asymmetrycomputing.com/v1/solve \
-  -H "X-PRISM-Key: <your-key>" \
-  -H "Content-Type: application/json" \
-  -d '{"n_assets": 2000, "mode": "precision", "gamma": 0.0005, "position_max": 0.10}'
+#### Step 4: Python Quick Start
+```python
+# pip install prism-sdk  (available to licensed clients)
+
+import requests
+r = requests.post("https://prism.asymmetrycomputing.com/v1/solve",
+    headers={"X-PRISM-Key": "<key>", "Content-Type": "application/json"},
+    json={"n_assets": 2000, "mode": "precision"})
+result = r.json()
+print(result["status"], result["wall_ms"], result["audit_hash"])
 ```
 
 ### 5.3 API Reference (Sanitized)
