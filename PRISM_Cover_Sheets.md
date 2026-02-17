@@ -1,5 +1,4 @@
-### E.1 CTO Cover Sheet
-**Strictly Confidential - Audience-Specific Front Matter**
+### CTO Briefing
 
 **To:** CTO / VP Engineering / Head of Quant Dev  
 **From:** Asymmetry Computing  
@@ -24,8 +23,7 @@
 
 <!-- PAGE_BREAK -->
 
-### E.2 VC Cover Sheet
-**Strictly Confidential - Audience-Specific Front Matter**
+### VC Briefing
 
 **To:** Investment Committee  
 **From:** Asymmetry Computing  
@@ -51,8 +49,7 @@
 
 <!-- PAGE_BREAK -->
 
-### E.3 GPU BD Cover Sheet
-**Strictly Confidential - Audience-Specific Front Matter**
+### GPU BD Briefing
 
 **To:** Strategic Partnerships / Compute Sales  
 **From:** Asymmetry Computing  

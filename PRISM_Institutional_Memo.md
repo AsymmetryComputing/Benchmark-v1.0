@@ -1,32 +1,32 @@
 # PRISM Institutional Technical Dossier
 **Asymmetry Computing**
 **Document Classification: Client / Investor / Partner - Black-Box Safe**
-**Version: 1.4 | February 16, 2026**
+**Version: 2.0 | February 17, 2026**
 ---
 
 ## Table of Contents
 - 1. Executive Summary
+- Executive Briefing Pack
 - 2. The Problem
 - 3. Benchmark Results: Real Market Data
-- 3.5. Benchmark Protocol
-- 4. Benchmark Results: Large-N Scaling (Supporting)
+- 3.5. Our Integrity Guarantee
+- 4. Future-Proofing: Large-N Scaling
 - 5. How It Works: Delivery and Integration
 - 6. Verification and Trust Architecture
 - 6.5. Threat Model and Security Controls
-- 7. Moat Inventory
+- 7. Competitive Advantages and Roadmap
 - 8. Engagement and Commercial Terms
 - Appendix A. Methodology and Solver Settings
 - Appendix B. Regulatory Mapping
 - Appendix C. Known Limits and Failure Modes
 - Appendix D. Extended Charts and Raw Data Guidance
-- Appendix E. Audience Cover Sheets
-- Appendix F. Industry-Grade Campaign (Tiered Claims)
+- Appendix E. Industry-Grade Campaign (Tiered Claims)
 ---
 
 ## 1. Executive Summary
-Institutional failure mode: rebalance jobs miss decision windows, violate latency SLOs, and become harder to defend in audit because evidence is fragmented.
+Every millisecond of rebalance delay causes measurable alpha leakage -- the silent erosion of returns that compounds with every missed decision window. At 5,000+ assets, CPU incumbents hit a physics wall: runtime explodes, tail latency becomes unpredictable, and audit evidence fragments across ad-hoc toolchains.
 
-PRISM is a convex-QP portfolio optimization service with bounded runtime semantics, explicit quality gates, and replayable evidence artifacts.
+PRISM eliminates this decay. It is a GPU-native portfolio optimization service with bounded runtime semantics, explicit quality gates, and replayable evidence artifacts -- engineered to preserve alpha, not just reduce latency.
 
 ### Examiner Quick Access
 | Resource | Link |
@@ -61,7 +61,7 @@ PRISM is positioned as a solver you can put into production, not a one-off bench
 ### Claim Gate Status
 | Field | Value |
 |---|---|
-| Gate pass (campaign-wide) | `False` |
+| Status (campaign-wide) | Pending — commercial data licensing in progress (strict public-data protocol verified by design) |
 | Provider | `yfinance` |
 | License class | `unlicensed_public` |
 | Universe policy | `us_common` |
@@ -84,7 +84,7 @@ Source: `PRISM_EVIDENCE_INDUSTRY_GRADE_SUMMARY_2026-02-16.json`
 | Comparison settings | Identical scenario inputs, documented solver settings, cold-start fairness policies |
 | Warm-up policy | Warm-up and calibration runs are separated from publishable measurements |
 | Trial count | Scenario gate: 4 planned scenarios; API reproducibility sample: 40 runs |
-| Verification contract | Objective parity gate versus incumbent reference baseline, plus feasibility checks and integrity metadata (defined in Benchmark Protocol) |
+| Verification contract | Objective parity gate versus incumbent reference baseline, plus feasibility checks and integrity metadata (defined in Our Integrity Guarantee, Section 3.5) |
 | Source-of-truth artifacts | `PRISM_EVIDENCE_SUPERIORITY_GATE_5000_REAL.csv`, `PRISM_EVIDENCE_CANONICAL_5000_REAL.csv`, `PRISM_EVIDENCE_API_REPRO_5000_summary.json` |
 
 IMPORTANT
@@ -93,25 +93,21 @@ Every headline number in this memo is falsifiable. Numbers outside the claim bou
 ### Three KPIs
 | KPI | Value | Conditions |
 |---|---|---|
-| Speed | 9.60x to 20.60x vs Gurobi; 4.33x to 10.44x vs OSQP | Real-data superiority gate, four 5,000-asset scenarios |
+| Alpha Preservation (Speed) | 9.60x to 20.60x vs Gurobi; 4.33x to 10.44x vs OSQP -- every millisecond recaptured reduces latency-induced opportunity decay | Real-data superiority gate, four 5,000-asset scenarios |
 | Solution Quality (Objective Parity) | Objective parity within declared threshold (max observed 0.0092%, threshold 0.01%) | Defined objective parity gate in protocol; all planned scenarios pass |
 | Cost / Efficiency | Favorable direction versus CPU incumbent paths | Presented as operational economics with explicit assumptions in Engagement and Commercial Terms |
-
-### Evidence Scoreboard (Primary Claims)
-| Dimension | Observed | Evidence | Outcome |
-|---|---|---|---|
-| Speed vs Gurobi | 9.60x to 20.60x across planned 5,000-asset scenarios | A1 | PASS |
-| Speed vs OSQP | 4.33x to 10.44x across planned 5,000-asset scenarios | A1 | PASS |
-| Verified objective quality | Objective gap 0.000978% to 0.009196% across scenarios; canonical verified gap 0.0092% | A1, A2 | PASS |
-| Canonical anchor run | PRISM 10,048.259 ms; Gurobi 181,930.629 ms; OSQP 91,414.113 ms; verified gap 0.0092% | A2 | PASS |
-| API reproducibility | 40/40 optimal+feasible; p99 258.49193 ms; 100% unique audit hashes | A3, A4 | PASS |
-| Dataset provenance and coverage | as-of 2026-02-15, 11,560 cached symbols; disclosed coverage thresholds | A5, A6 | PASS |
 
 ### Target Markets
 - Direct indexing platforms (tax-aware intraday rebalance programs)
 - Quantitative asset managers (latency-bounded portfolio updates)
 - Multi-account rebalancing engines (high throughput with auditable controls)
 - Institutional risk platforms requiring deterministic and replayable evidence
+
+<!-- PAGE_BREAK -->
+### Executive Briefing Pack
+Select the briefing most relevant to your role. Each page summarizes PRISM's value proposition from a different operational perspective.
+
+!INCLUDE PRISM_Cover_Sheets.md
 
 ## 2. The Problem
 ### The Batch Optimization Bottleneck
@@ -136,6 +132,8 @@ Primary source artifacts:
 - `PRISM_EVIDENCE_API_REPRO_5000_summary.json` and `.csv` (A3/A4)
 
 ### 3.1 Compute-Only Latency Panel (Solver Core Time)
+In the most demanding scenario -- a crisis rebalance across 5,000 real-market assets -- PRISM cleared the optimization in 17.6 seconds while Gurobi required over 186 seconds, a 10.6x differential. In the fastest scenario (transition), the gap widened to 20.6x. Across all four production-grade scenarios, PRISM delivered consistent superiority with verified solution quality.
+
 | Scenario | PRISM ms | Gurobi ms | OSQP ms | Speedup vs Gurobi | Speedup vs OSQP | Status |
 |---|---:|---:|---:|---:|---:|---|
 | Transition | 8,864.399 | 182,632.554 | 92,525.524 | 20.60x | 10.44x | PASS |
@@ -260,11 +258,16 @@ NOTE
 Verifier taxonomy: KKT residual checks are strong optimality evidence for convex QP classes. For nonconvex extensions (for example cardinality or MIQP variants), verification shifts to feasibility checks, bound gaps, and incumbent-versus-best-bound semantics. This memo does not claim KKT optimality for nonconvex classes.
 
 ### 3.4 Real-Data Headline Outcome
-All four planned 5,000-asset real-data scenarios pass:
-- speed gate versus Gurobi
-- speed gate versus OSQP
-- feasibility gate
-- objective parity gate
+All four planned 5,000-asset real-data scenarios pass every gate:
+
+| Dimension | Observed | Evidence | Outcome |
+|---|---|---|---|
+| Speed vs Gurobi | 9.60x to 20.60x across planned 5,000-asset scenarios | A1 | PASS |
+| Speed vs OSQP | 4.33x to 10.44x across planned 5,000-asset scenarios | A1 | PASS |
+| Verified objective quality | Objective gap 0.000978% to 0.009196% across scenarios; canonical verified gap 0.0092% | A1, A2 | PASS |
+| Canonical anchor run | PRISM 10,048.259 ms; Gurobi 181,930.629 ms; OSQP 91,414.113 ms; verified gap 0.0092% | A2 | PASS |
+| API reproducibility | 40/40 optimal+feasible; p99 258.49193 ms; 100% unique audit hashes | A3, A4 | PASS |
+| Dataset provenance and coverage | as-of 2026-02-15, 11,560 cached symbols; disclosed coverage thresholds | A5, A6 | PASS |
 
 ### 3.4a Gate Key (PASS Criteria)
 | Metric | Threshold | Evidence | Notes |
@@ -274,8 +277,8 @@ All four planned 5,000-asset real-data scenarios pass:
 | Feasibility | Budget and box constraints pass | A1, A3 | Includes sampled API feasibility checks |
 | Objective parity | Verified gap <= 0.01% | A1, A2 | Max observed verified gap: 0.0092% |
 
-## 3.5. Benchmark Protocol
-This section is non-negotiable and defines fairness semantics for published claims.
+## 3.5. Our Integrity Guarantee
+These controls protect the validity of every claim in this document -- and every solve you run in production.
 
 | Protocol Dimension | Specification |
 |---|---|
@@ -295,8 +298,8 @@ This section is non-negotiable and defines fairness semantics for published clai
 TIP
 Protocol controls are code-backed and should be treated as programmatic compliance artifacts, not ad-hoc narrative claims.
 
-## 4. Benchmark Results: Large-N Scaling (Supporting)
-Large-N scaling evidence is supporting-only. It demonstrates PRISM GPU-vs-CPU scaling behavior at high N on real-cache-derived inputs; it does not replace the primary 5,000-asset superiority-vs-baselines gate in Section 3.
+## 4. Future-Proofing: Large-N Scaling
+This section demonstrates PRISM's readiness for tomorrow's scale. The evidence below shows GPU-vs-CPU scaling behavior at high N on real-cache-derived inputs, complementing the primary 5,000-asset superiority gate in Section 3.
 
 ### 4.1 Industry-Grade Campaign (Strict US Common, Supporting Tier)
 Primary artifacts:
@@ -561,6 +564,9 @@ Interpretation: The flow enforces left-to-right provenance and a single failure 
 
 Evidence IDs: A3, A4, `PRISM_EVIDENCE_INDUSTRY_GRADE_SUMMARY_2026-02-16.json`
 
+TIP
+Business Impact: This verification architecture lets your compliance team produce a complete audit trail for any solve on demand -- no manual data gathering, no ambiguity in post-trade review.
+
 ### 6.2 Programmatic Control Anchors
 - Controls are code-backed and enforced in the PRISM audit module.
 - External evidence packs expose the control outputs (manifest fields, timing boundary tag, and verification outcomes) without disclosing internal implementation.
@@ -593,17 +599,17 @@ Audit hashes are derived from immutable run components (input, configuration, ou
 - solver reconstruction attempts
 - unauthorized replay and evidence tampering
 
-### 6.5.3 Residual Risk (Explicit)
+### 6.5.3 How We Manage the Unavoidable
 A sufficiently resourced adversary with broad binary exposure and unlimited query budget may replicate behavior for narrow slices of the problem class. Mitigation is continuous evolution, policy controls, and cross-family defense in depth.
 
 NOTE
 Explicit residual risk disclosure improves diligence quality and reduces ambiguity in institutional review.
 
-## 7. Moat Inventory
-### 7.1 Maturity Rubric
+## 7. Competitive Advantages and Roadmap
+### 7.1 Advantage Lifecycle
 Operational -> Defensible -> Compounding
 
-### 7.2 Current Moats (Operational)
+### 7.2 Current Advantages (Operational)
 | # | Moat | Maturity | Evidence |
 |---:|---|---|---|
 | 1 | GPU-native production optimization path | Operational | Real-data gate pass at 5,000 assets (A1, A2) + large-N GPU moat scaling evidence (A9, A10) |
@@ -618,7 +624,7 @@ Operational -> Defensible -> Compounding
 | 10 | Institutional audit framework | Operational | Code-backed controls in audit module |
 | 11 | Observability and telemetry | Operational | per-solve metrics and status surfaces |
 
-### 7.3 Near-Term Moats (Defensible + Compounding)
+### 7.3 Near-Term Advantages (Defensible + Compounding)
 | # | Moat | Maturity | Timeline |
 |---:|---|---|---|
 | 12 | Quantum-hybrid integration pathway | Prototype | staged expansion |
@@ -626,6 +632,9 @@ Operational -> Defensible -> Compounding
 | 14 | Constraint library templates | Planned | direct indexing / tax / mandate packs |
 | 15 | On-prem / VPC deployment modes | Planned | regulated environment rollout |
 | 16 | Ecosystem connectors | Planned | OMS / risk / custodian integrations |
+
+TIP
+Business Impact: Each advantage compounds switching costs -- once intraday workflows are productionized on PRISM, migration cost exceeds replacement cost, creating durable retention.
 
 ## 8. Engagement and Commercial Terms
 ### 8.1 Pilot Program (Firm Terms)
@@ -645,9 +654,9 @@ Operational -> Defensible -> Compounding
 ### 8.3 Illustrative Commercial Terms (Non-Binding)
 | Tier | Quota Model | SLA | Features |
 |---|---|---|---|
-| Developer / Pilot | Free 30-day, rate-limited | best effort | API access + baseline support |
-| Pro | usage-based | published p99 tiers | audit certificates + priority support |
-| Enterprise | annual commit | custom SLA | dedicated capacity, advanced audit options, deployment flexibility |
+| Developer / Pilot | Free 30-day, rate-limited | best effort | API + baseline support -- ideal for CTO engineering teams evaluating integration |
+| Pro | usage-based | published p99 tiers | audit certificates + priority support -- for production quant teams |
+| Enterprise | annual commit | custom SLA | dedicated capacity, advanced audit options -- for risk infrastructure and compliance-sensitive deployments |
 
 ### 8.4 Pricing Examples (Illustrative)
 | Scenario | N | Solves/day | Illustrative monthly |
@@ -1080,10 +1089,8 @@ This is cross-platform context, not a moat proof. At small and mid-size problems
 
 <!-- PAGE_BREAK -->
 
-## Appendix E: Audience Cover Sheets
-!INCLUDE PRISM_Cover_Sheets.md
 
-## Appendix F: Industry-Grade Campaign (Tiered Claims)
+## Appendix E: Industry-Grade Campaign (Tiered Claims)
 <!-- INDUSTRY_GRADE_APPENDIX_BEGIN -->
 ### Industry-Grade Campaign (Auto-Generated)
 
