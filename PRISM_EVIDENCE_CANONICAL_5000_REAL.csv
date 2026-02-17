@@ -1,0 +1,2 @@
+benchmark_id,n_assets,runtime_ms_prism,runtime_ms_gurobi,runtime_ms_osqp,gap_raw_pct,gap_certified_pct,quality_gate_status,fallback_used
+canonical_real5000_h2h,5000,10048.259,181930.629,91414.113,19.0197,0.0092,CERTIFIED_PASS,False

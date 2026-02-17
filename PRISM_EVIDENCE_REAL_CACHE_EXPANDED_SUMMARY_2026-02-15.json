@@ -1,0 +1,22 @@
+{
+  "as_of": "2026-02-15",
+  "cache_path": "dist/prism_m2_pack_20260215_214739/data/prism_price_cache.pkl",
+  "rows_days": 283,
+  "assets": 75477,
+  "date_start": "2025-02-14",
+  "date_end": "2026-02-15",
+  "coverage_thresholds": {
+    "ge_40": 75257,
+    "ge_90": 73908,
+    "ge_120": 72359,
+    "ge_180": 10230,
+    "ge_200": 10129,
+    "ge_240": 9899
+  },
+  "notes": [
+    "Expanded cache for scaling benchmarks only (supporting evidence).",
+    "Symbol discovery uses StockAnalysis.com list pages across multiple exchanges/instrument types.",
+    "Price history is sourced from Yahoo Finance via yfinance (benchmarking use only; not a licensed institutional feed).",
+    "Do not interpret symbol count as 'listed common stocks' count."
+  ]
+}

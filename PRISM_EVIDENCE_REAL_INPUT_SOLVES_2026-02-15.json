@@ -1,0 +1,103 @@
+{
+  "as_of": "2026-02-15",
+  "kind": "PRISM_REAL_INPUT_SOLVE_PROOF",
+  "cache_path": "/tmp/prism_price_cache.pkl",
+  "runs": [
+    {
+      "requested_n": 5000,
+      "effective_n": 4996,
+      "min_obs_rule": 180,
+      "k_factors": 20,
+      "date_start": "2025-02-14",
+      "date_end": "2026-02-13",
+      "sample_tickers": [
+        "BAMA",
+        "A",
+        "AA",
+        "AAL",
+        "AAMI",
+        "AAON",
+        "AAP",
+        "AAPL",
+        "AAT",
+        "ABBV",
+        "ABCB",
+        "ABG",
+        "ABM",
+        "ABNB",
+        "ABR",
+        "ABT",
+        "ACA",
+        "ACAD",
+        "ACGL",
+        "ACHC"
+      ],
+      "solve": {
+        "status": "optimal",
+        "engine_used": "factor-gpu",
+        "wall_ms": 253.59,
+        "device_ms": 253.736,
+        "objective": 90.6797806772,
+        "feasible": true,
+        "kkt_primal": 0.0,
+        "audit_hash": "22c88bff9d8e8943bdd571c91b85130b",
+        "solve_id": "2b51ed74b74adbe8"
+      },
+      "audit": {
+        "found": true,
+        "status": "optimal",
+        "n_assets": 4996,
+        "wall_ms": 264.648,
+        "audit_hash": "22c88bff9d8e8943bdd571c91b85130b"
+      }
+    },
+    {
+      "requested_n": 10000,
+      "effective_n": 9989,
+      "min_obs_rule": 120,
+      "k_factors": 20,
+      "date_start": "2025-02-14",
+      "date_end": "2026-02-13",
+      "sample_tickers": [
+        "BAMA",
+        "A",
+        "AA",
+        "AAL",
+        "AAMI",
+        "AAON",
+        "AAP",
+        "AAPL",
+        "AAT",
+        "ABBV",
+        "ABCB",
+        "ABG",
+        "ABM",
+        "ABNB",
+        "ABR",
+        "ABT",
+        "ACA",
+        "ACAD",
+        "ACGL",
+        "ACHC"
+      ],
+      "solve": {
+        "status": "optimal",
+        "engine_used": "factor-gpu",
+        "wall_ms": 229.524,
+        "device_ms": 209.356,
+        "objective": 91.1685459348,
+        "feasible": true,
+        "kkt_primal": 0.0,
+        "audit_hash": "e9aa14a7bde66ff2040b23976f10a3cd",
+        "solve_id": "883461ef3ad61de3"
+      },
+      "audit": {
+        "found": true,
+        "status": "optimal",
+        "n_assets": 9989,
+        "wall_ms": 219.449,
+        "audit_hash": "e9aa14a7bde66ff2040b23976f10a3cd"
+      }
+    }
+  ]
+}

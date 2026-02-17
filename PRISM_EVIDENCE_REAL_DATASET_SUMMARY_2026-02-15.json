@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-02-15",
+  "cache_path": "\\tmp\\prism_price_cache.pkl",
+  "shape": {
+    "rows_days": 251,
+    "assets": 11560
+  },
+  "date_range": {
+    "start": "2025-02-14",
+    "end": "2026-02-13"
+  },
+  "coverage_thresholds": {
+    "ge_40": 11340,
+    "ge_90": 10907,
+    "ge_120": 10685,
+    "ge_180": 10230,
+    "ge_200": 10129,
+    "ge_240": 9899
+  },
+  "source_cross_checks": {
+    "alpaca_active_tradable_count": 12486,
+    "sp1500_list_count": 1761,
+    "cache_intersection_with_alpaca": 11317,
+    "cache_intersection_with_sp1500": 1759
+  },
+  "notes": [
+    "All price series are sourced from Yahoo Finance daily close history via yfinance downloader.",
+    "Universe discovery combines Alpaca active tradable US equities and S&P lists.",
+    "This is real market data, not synthetic generation."
+  ]
+}

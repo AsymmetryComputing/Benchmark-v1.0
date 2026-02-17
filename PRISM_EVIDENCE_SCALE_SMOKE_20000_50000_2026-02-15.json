@@ -1,0 +1,46 @@
+{
+  "as_of": "2026-02-15",
+  "kind": "PRISM_SCALE_SMOKE_20000_50000",
+  "runs": [
+    {
+      "requested_n": 20000,
+      "solve": {
+        "status": "optimal",
+        "engine_used": "extreme",
+        "n_assets_response": 20000,
+        "wall_ms": 1827.417,
+        "feasible": true,
+        "solve_id": "a84172437821d909",
+        "audit_hash": "98e3af4c6fc8377675426cf4e75b70e7"
+      },
+      "audit": {
+        "found": true,
+        "n_assets": 20000,
+        "status": "optimal",
+        "wall_ms": 1821.163,
+        "audit_hash": "98e3af4c6fc8377675426cf4e75b70e7"
+      },
+      "disclosure": "This run does not include explicit real mu/B/D payload; treat as engine scale smoke test, not real-data proof."
+    },
+    {
+      "requested_n": 50000,
+      "solve": {
+        "status": "optimal",
+        "engine_used": "extreme",
+        "n_assets_response": 50000,
+        "wall_ms": 2673.65,
+        "feasible": true,
+        "solve_id": "51daa1a64fc2c7f1",
+        "audit_hash": "fbfadd969c5d4dcc69deab0229d2f15d"
+      },
+      "audit": {
+        "found": true,
+        "n_assets": 50000,
+        "status": "optimal",
+        "wall_ms": 2644.033,
+        "audit_hash": "fbfadd969c5d4dcc69deab0229d2f15d"
+      },
+      "disclosure": "This run does not include explicit real mu/B/D payload; treat as engine scale smoke test, not real-data proof."
+    }
+  ]
+}

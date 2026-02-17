@@ -1,0 +1,169 @@
+{
+  "generated_utc": "2026-02-16T09:36:37.226941+00:00",
+  "campaign_dir": "results/industry_grade_20260216_092514",
+  "campaign_summary": {
+    "timestamp_utc": "2026-02-16T09:29:10.817226+00:00",
+    "output_dir": "results/industry_grade_20260216_092514",
+    "sizes": [
+      20000,
+      50000,
+      100000
+    ],
+    "engines": [
+      "factor-cpu",
+      "factor-gpu",
+      "gurobi",
+      "osqp"
+    ],
+    "provider_id": "yfinance",
+    "license_class": "unlicensed_public",
+    "dataset_id": "industry_grade:yfinance:prism_price_cache.pkl",
+    "universe_policy": "us_common",
+    "universe_sha256": "e79e56bc93f90cfc293bcce04d844512864a816700f4ddf9e5e64ad3930c9e79",
+    "universe_count": 5192,
+    "claim_gate_pass_all": false,
+    "claim_gate_reasons_union": [
+      "license_class_not_claim_capable:unlicensed_public"
+    ],
+    "missing_rows": []
+  },
+  "provider_id": "yfinance",
+  "provider_version": "unavailable",
+  "license_class": "unlicensed_public",
+  "request_window": {
+    "min_timestamp_utc": "2026-02-16T09:25:32.440844+00:00",
+    "max_timestamp_utc": "2026-02-16T09:28:04.930847+00:00"
+  },
+  "universe_sha256": "e79e56bc93f90cfc293bcce04d844512864a816700f4ddf9e5e64ad3930c9e79",
+  "selected_assets_sha256_unique": [
+    "6df1a38cd62754230125ff533db15a5daf7ae8296c2a7cec9c97df999037e2d0"
+  ],
+  "hardware_fingerprint": "faaefde23d9033bbdbaa21a51bb3888efe9acfc25d1589ba5673605b98985c6c",
+  "solver_versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "3.0.0",
+    "osqp": "1.1.0",
+    "gurobipy": "(13, 0, 1)",
+    "yfinance": "unavailable"
+  },
+  "claim_gate_pass_all": false,
+  "evidence_tier_counts": {
+    "supporting": 12
+  },
+  "rows": [
+    {
+      "n_assets_requested": 20000,
+      "engine": "factor-cpu",
+      "runtime_ms_p50": 4854.456126,
+      "runtime_ms_p95": 5047.942547000001,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 20000,
+      "engine": "factor-gpu",
+      "runtime_ms_p50": 756.7784850252792,
+      "runtime_ms_p95": 800.5486674257554,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 20000,
+      "engine": "gurobi",
+      "runtime_ms_p50": 1135.906829033047,
+      "runtime_ms_p95": 1303.7509265821427,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 20000,
+      "engine": "osqp",
+      "runtime_ms_p50": 3134.31022799341,
+      "runtime_ms_p95": 3181.2174081685957,
+      "solver_status": "maximum_iterations_reached",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 50000,
+      "engine": "factor-cpu",
+      "runtime_ms_p50": 3145.163117,
+      "runtime_ms_p95": 4088.518262,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 50000,
+      "engine": "factor-gpu",
+      "runtime_ms_p50": 670.5802060314454,
+      "runtime_ms_p95": 818.7417256180197,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 50000,
+      "engine": "gurobi",
+      "runtime_ms_p50": 787.9583110334352,
+      "runtime_ms_p95": 812.940463447012,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 50000,
+      "engine": "osqp",
+      "runtime_ms_p50": 3074.218377005309,
+      "runtime_ms_p95": 3207.845250586979,
+      "solver_status": "maximum_iterations_reached",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 100000,
+      "engine": "factor-cpu",
+      "runtime_ms_p50": 5062.841354,
+      "runtime_ms_p95": 5552.358036199999,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 100000,
+      "engine": "factor-gpu",
+      "runtime_ms_p50": 765.7658929820172,
+      "runtime_ms_p95": 907.1592818014324,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 100000,
+      "engine": "gurobi",
+      "runtime_ms_p50": 1357.3026320082135,
+      "runtime_ms_p95": 2212.358457420487,
+      "solver_status": "optimal",
+      "run_ok": true,
+      "failure_reason": NaN
+    },
+    {
+      "n_assets_requested": 100000,
+      "engine": "osqp",
+      "runtime_ms_p50": 2861.706597963348,
+      "runtime_ms_p95": 3145.011268206872,
+      "solver_status": "maximum_iterations_reached",
+      "run_ok": true,
+      "failure_reason": NaN
+    }
+  ],
+  "artifacts": {
+    "campaign_csv": "PRISM_EVIDENCE_INDUSTRY_GRADE_CAMPAIGN_2026-02-16.csv",
+    "summary_json": "PRISM_EVIDENCE_INDUSTRY_GRADE_SUMMARY_2026-02-16.json",
+    "universe_csv": "PRISM_EVIDENCE_UNIVERSE_US_COMMON_2026-02-16.csv"
+  }
+}

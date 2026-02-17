@@ -1,0 +1,17 @@
+{
+  "n_runs": 40,
+  "http_200_rate": 1.0,
+  "optimal_rate": 1.0,
+  "feasible_rate": 1.0,
+  "wall_ms_p50": 64.8825,
+  "wall_ms_p95": 125.8799999999999,
+  "wall_ms_p99": 258.4919299999999,
+  "wall_ms_mean": 76.39375,
+  "wall_ms_std": 44.871842147247534,
+  "objective_mean": 0.002013795775,
+  "objective_std": 0.0003572261442888578,
+  "objective_cv_pct": 17.73894596083646,
+  "kkt_primal_max": 0.0,
+  "kkt_primal_p99": 0.0,
+  "unique_audit_hash_rate": 1.0
+}

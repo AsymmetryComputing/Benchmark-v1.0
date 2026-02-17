@@ -1,0 +1,5 @@
+n_assets,runtime_ms_prism_gpu_p50,runtime_ms_prism_cpu_p50,runtime_ms_gurobi_p50,runtime_ms_osqp_p50,speedup_vs_gurobi_x
+500,56.8,2.0,56.7,89.9,1.0
+5000,308.0,301.0,337.0,3522.0,1.1
+20000,446.0,1415.0,2082.0,,4.7
+50000,432.0,655.0,4777.0,,11.0

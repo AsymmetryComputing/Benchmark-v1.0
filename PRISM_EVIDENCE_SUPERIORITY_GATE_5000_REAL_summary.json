@@ -1,0 +1,17 @@
+{
+  "gate_status": "PASS",
+  "n_scenarios": 4,
+  "speedup_vs_gurobi_range_x": [
+    9.599814995227906,
+    20.60292687912345
+  ],
+  "speedup_vs_osqp_range_x": [
+    4.334375503625515,
+    10.437879566826403
+  ],
+  "certified_gap_range_pct": [
+    0.0009781528696972551,
+    0.0091962515336395
+  ],
+  "certified_gap_mean_pct": 0.004957774500196485
+}

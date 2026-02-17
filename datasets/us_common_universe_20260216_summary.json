@@ -1,0 +1,38 @@
+{
+  "asof": "20260216",
+  "source_symbols": "/tmp/prism_price_cache.pkl",
+  "metadata_csv": "datasets/strict_us_common_metadata_20260216.csv",
+  "input_symbol_count": 75477,
+  "included_symbol_count": 5192,
+  "excluded_symbol_count": 70285,
+  "missing_metadata_count": 70279,
+  "excluded_symbol_classes": {
+    "missing_metadata": 70279,
+    "otc_pink": 6
+  },
+  "policy": {
+    "allowed_exchanges": [
+      "NASDAQ",
+      "NYSE"
+    ],
+    "quote_type_required": "EQUITY",
+    "exclude_classes": [
+      "adr",
+      "closed_end_fund",
+      "etf",
+      "fund",
+      "mutual_fund",
+      "otc",
+      "otc_pink",
+      "pink",
+      "preferred",
+      "unit",
+      "warrant"
+    ]
+  },
+  "universe_sha256": "18930489a27e496fac5ce97cb38c3c4e789a35a06fba3d3e8ed08ae1136b7d89",
+  "outputs": {
+    "universe_csv": "datasets/us_common_universe_20260216.csv",
+    "summary_json": "datasets/us_common_universe_20260216_summary.json"
+  }
+}

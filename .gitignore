@@ -1,0 +1,9 @@
+# Ignore everything not explicitly tracked
+*.pyc
+__pycache__/
+.env
+*.pid
+*.log
+.DS_Store
+*.Zone.Identifier
+*.SmartScreen
