@@ -1,6 +1,6 @@
 {
   "asof": "20260216",
-  "source_symbols": "/tmp/prism_price_cache.pkl",
+  "source_symbols": "local_price_cache",
   "metadata_csv": "datasets/strict_us_common_metadata_20260216.csv",
   "input_symbol_count": 75477,
   "included_symbol_count": 5192,
