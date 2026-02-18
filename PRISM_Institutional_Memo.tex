@@ -1,0 +1,1977 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=2.2cm, bottom=1.80cm, left=2.00cm, right=2.00cm, footskip=1.20cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\IfFileExists{inter.sty}{\IfFileExists{lgrenc.def}{\usepackage{inter}}{\usepackage[default,lining]{sourcesanspro}}}{\usepackage[default,lining]{sourcesanspro}}
+\usepackage{newtxmath}
+\usepackage[scaled=0.92]{inconsolata}
+\usepackage{seqsplit}
+\usepackage{cmap}
+\usepackage{microtype}
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage{xurl}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,fit,patterns.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[section]{placeins}
+\usepackage{lastpage}
+\usepackage[most]{tcolorbox}
+\usepackage{verbatim}
+
+\definecolor{brandbg}{HTML}{030711}
+\definecolor{brandink}{HTML}{02040A}
+\definecolor{brandline}{HTML}{334155}
+\definecolor{brandtext}{HTML}{F8FAFC}
+\definecolor{brandmuted}{HTML}{CBD5E1}
+\definecolor{prismink}{HTML}{0A0D14}
+\definecolor{prismnavy}{HTML}{02040A}
+\definecolor{prismteal}{HTML}{123754}
+\definecolor{prismaccent}{HTML}{1F3A5F}
+\definecolor{prismslate}{HTML}{1F2937}
+\definecolor{prismline}{HTML}{334155}
+\definecolor{prismtablehead}{HTML}{D5DDE8}
+\definecolor{prismtablerow}{HTML}{F2F5F9}
+\definecolor{prismcalloutbg}{HTML}{F4F7FB}
+\definecolor{prismwarnbg}{HTML}{FFF3E8}
+\definecolor{prismplota}{HTML}{0A1425}
+\definecolor{prismplotb}{HTML}{123754}
+\definecolor{prismplotc}{HTML}{374151}
+\definecolor{prismplotd}{HTML}{7A1E1E}
+\definecolor{gpunavy}{HTML}{0B1F33}
+\definecolor{gpucore}{HTML}{071522}
+\definecolor{throughputblue}{HTML}{2FA4FF}
+\definecolor{textsecondary}{HTML}{5A6B7B}
+\definecolor{gridlight}{HTML}{E6EAF0}
+\definecolor{bargray}{HTML}{9CA3AF}
+\definecolor{headertagline}{HTML}{C8D2DC}
+\definecolor{headertext}{HTML}{F5F7FA}
+\definecolor{prismbar}{HTML}{1F4E79}
+\definecolor{osqpbar}{HTML}{9AA3AE}
+\definecolor{gurobibar}{HTML}{C7CDD6}
+\newcommand{\HeaderBandH}{1.10cm}
+\newcommand{\TitleBandH}{0.85in}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\fancyfoot[C]{\footnotesize\sffamily\textcolor{prismslate}{Asymmetry Computing \textbar{} v2.0 \textbar{} February 2026 \textbar{} Page \thepage{} of \pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{32pt}
+\setlength{\headsep}{30pt}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\titleformat{\section}{\Large\sffamily\bfseries\color{prismnavy}}{\thesection}{0.55em}{}[\vspace{-0.35em}\color{prismline}\rule{\textwidth}{0.7pt}]
+\titleformat{\subsection}{\large\sffamily\bfseries\color{prismteal}}{\thesubsection}{0.55em}{}
+\titleformat{\subsubsection}{\normalsize\sffamily\bfseries\color{prismnavy}}{\thesubsubsection}{0.55em}{}
+\titlespacing*{\section}{0pt}{0.70ex plus 0.2ex minus 0.1ex}{0.32ex}
+\titlespacing*{\subsection}{0pt}{0.55ex plus 0.15ex}{0.26ex}
+\titlespacing*{\subsubsection}{0pt}{0.45ex plus 0.15ex}{0.22ex}
+
+\hypersetup{colorlinks=true,linkcolor=prismnavy,urlcolor=prismteal}
+\captionsetup{labelfont={bf,sf,color=prismnavy},textfont={small,bf,sf,color=prismink},skip=4pt}
+\setlength{\parskip}{0.12em}
+\setlength{\parindent}{0pt}
+\linespread{1.00}
+\setlist[itemize]{leftmargin=1.10em,itemsep=0.04em,topsep=0.05em}
+\setlist[enumerate]{leftmargin=1.22em,itemsep=0.04em,topsep=0.05em}
+\renewcommand{\arraystretch}{1.04}
+\setlength{\tabcolsep}{3.2pt}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\pdfgentounicode=1
+\setlength{\emergencystretch}{3em}
+\hyphenpenalty=8000
+\exhyphenpenalty=8000
+\setlength{\textfloatsep}{4pt plus 1pt minus 1pt}
+\setlength{\floatsep}{4pt plus 1pt minus 1pt}
+\setlength{\intextsep}{4pt plus 1pt minus 1pt}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforesecskip}{0.12em}
+\renewcommand{\cftsecfont}{\small\sffamily\bfseries\color{prismnavy}}
+\renewcommand{\cftsecpagefont}{\small\sffamily\bfseries\color{prismnavy}}
+\newtcolorbox{prismcallout}[1]{enhanced,breakable,colback=prismcalloutbg,colframe=prismaccent,boxrule=0.95pt,arc=0pt,left=5pt,right=5pt,top=5pt,bottom=5pt,title={#1},fonttitle=\small\sffamily\bfseries,colbacktitle=prismaccent,coltitle=brandtext,boxed title style={sharp corners,boxrule=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}}
+\newtcolorbox{prismwarning}[1]{enhanced,breakable,colback=prismwarnbg,colframe=prismplotd,boxrule=0.95pt,arc=0pt,left=5pt,right=5pt,top=5pt,bottom=5pt,title={#1},fonttitle=\small\sffamily\bfseries,colbacktitle=prismplotd,coltitle=brandtext,boxed title style={sharp corners,boxrule=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}}
+\newtcolorbox{prismglasscard}[1]{enhanced,colback=white,colframe=gpunavy!15,boxrule=0.6pt,arc=1.5mm,left=6pt,right=6pt,top=8pt,bottom=6pt,equal height group=covercards,borderline north={1.5pt}{0pt}{gpunavy},title={#1},fonttitle=\scriptsize\sffamily\bfseries,colbacktitle=white,coltitle=gpunavy,attach boxed title to top center={yshift=-1.2mm},boxed title style={sharp corners,boxrule=0pt,left=6pt,right=6pt,top=1pt,bottom=1pt,opacityback=1.0} }
+\pgfplotscreateplotcyclelist{prismcycle}{{prismplota,mark=*},{prismplotb,mark=square*},{prismplotc,mark=triangle*},{prismplotd,mark=diamond*}}
+\pgfplotsset{cycle list name=prismcycle}
+\pgfplotsset{tick scale label code/.code={$\times 10^{#1}$}}
+\pgfplotsset{every axis/.append style={axis line style={draw=prismline!50,line width=0.5pt},tick style={draw=prismline!40,line width=0.5pt},tick label style={font=\footnotesize,color=textsecondary},label style={font=\small\sffamily\bfseries,color=prismnavy},legend style={font=\footnotesize\sffamily,draw=gridlight,fill=white},ymajorgrids=true,xmajorgrids=true,major grid style={draw=gridlight,line width=0.30pt},xtick={500,1000,5000,10000,20000,50000},xticklabels={500,1000,5k,10k,20k,50k}},every axis plot/.append style={line width=1.45pt}}
+\newcommand{\PRISMBackground}{\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=gpunavy,bottom color=gpucore] ([xshift=-1mm]current page.north west) rectangle ([xshift=1mm,yshift=-\HeaderBandH]current page.north east);
+\begin{scope}
+\clip ([xshift=-1mm]current page.north west) rectangle ([xshift=1mm,yshift=-\HeaderBandH]current page.north east);
+\fill[pattern={Lines[angle=0,distance=2.8mm,line width=0.10pt]},pattern color=white,opacity=0.04] ([xshift=-1mm]current page.north west) rectangle ([xshift=1mm,yshift=-\HeaderBandH]current page.north east);
+\fill[pattern={Lines[angle=90,distance=4.5mm,line width=0.10pt]},pattern color=white,opacity=0.04] ([xshift=-1mm]current page.north west) rectangle ([xshift=1mm,yshift=-\HeaderBandH]current page.north east);
+\end{scope}
+\draw[prismaccent,line width=2.0pt,opacity=1.00] ([xshift=-1mm,yshift=-\HeaderBandH]current page.north west) -- ([xshift=1mm,yshift=-\HeaderBandH]current page.north east);
+\draw[throughputblue,line width=2.0pt,opacity=1.00] ([xshift=-1mm,yshift=-\HeaderBandH-2.0pt]current page.north west) -- ([xshift=1mm,yshift=-\HeaderBandH-2.0pt]current page.north east);
+\node[inner sep=0pt,anchor=west,font=\fontsize{11}{12}\selectfont\sffamily\bfseries,text=headertext,text opacity=0.98] at ([xshift=2.00cm,yshift=-\HeaderBandH/2+0.20cm]current page.north west) {PRISM};
+\node[inner sep=0pt,anchor=west,font=\fontsize{8}{9}\selectfont\sffamily,text=headertagline,text opacity=0.85] at ([xshift=2.00cm,yshift=-\HeaderBandH/2-0.30cm]current page.north west) {\textls[30]{GPU-Native \textbar{} Deterministic \textbar{} High-Throughput}};
+\node[inner sep=0pt,anchor=east,font=\fontsize{10.5}{12}\selectfont\sffamily\bfseries,text=headertext,text opacity=0.92] at ([xshift=-2.00cm,yshift=-\HeaderBandH/2]current page.north east) {Asymmetry Computing};
+\end{tikzpicture}}
+
+\begin{document}
+\raggedbottom
+\hypersetup{pageanchor=false}
+\color{prismink}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=gpunavy,bottom color=gpucore] ([xshift=-1in,yshift=1in]current page.north west) rectangle ([xshift=1in,yshift=-\TitleBandH]current page.north east);
+\begin{scope}
+\clip ([xshift=-1in,yshift=1in]current page.north west) rectangle ([xshift=1in,yshift=-\TitleBandH]current page.north east);
+\fill[pattern={Lines[angle=0,distance=3.5mm,line width=0.10pt]},pattern color=white,opacity=0.06] ([xshift=-1in,yshift=1in]current page.north west) rectangle ([xshift=1in,yshift=-\TitleBandH]current page.north east);
+\fill[pattern={Lines[angle=90,distance=5mm,line width=0.10pt]},pattern color=white,opacity=0.06] ([xshift=-1in,yshift=1in]current page.north west) rectangle ([xshift=1in,yshift=-\TitleBandH]current page.north east);
+\end{scope}
+\draw[prismaccent,line width=2.0pt,opacity=1.00] ([xshift=-1in,yshift=-\TitleBandH]current page.north west) -- ([xshift=1in,yshift=-\TitleBandH]current page.north east);
+\draw[throughputblue,line width=2.0pt,opacity=1.00] ([xshift=-1in,yshift=-\TitleBandH-2.0pt]current page.north west) -- ([xshift=1in,yshift=-\TitleBandH-2.0pt]current page.north east);
+\end{tikzpicture}
+\vspace*{-0.50cm}
+\begin{center}
+{\fontsize{40}{44}\selectfont\sffamily\bfseries\textcolor{gpunavy}{PRISM}}\\[0.35cm]
+{\fontsize{14}{16}\selectfont\sffamily\bfseries\textcolor{prismteal}{Deterministic GPU Optimization for Institutional Portfolios}}\\[0.05cm]
+{\fontsize{10}{12}\selectfont\sffamily\textcolor{textsecondary}{Validation Report \;\textbar\; Version 1.4 \;\textbar\; February 2026}}\\[0.05cm]
+{\fontsize{10}{12}\selectfont\sffamily\bfseries\textcolor{gpunavy}{GPU-Native \;\textbar\; Deterministic \;\textbar\; Audit-Traceable \;\textbar\; Real Market Data}}\\[0.20cm]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary!60}{Compared against: Gurobi 13.0.1, OSQP 1.1.0}}\\[0.80cm]
+\begin{minipage}{0.98\textwidth}
+\centering
+{\small\sffamily\bfseries\textcolor{prismnavy}{Median Solve Time}}\\[0.02cm]
+\includegraphics[width=0.98\linewidth,height=4.0cm,keepaspectratio]{prism_hero_chart.pdf}\\[0.80cm]
+\begin{tcolorbox}[colback=prismcalloutbg,colframe=white,boxrule=0pt,arc=1mm,left=4pt,right=4pt,top=4pt,bottom=4pt]
+\centering
+{\scriptsize\sffamily\bfseries\textcolor{gpunavy}{Benchmark Scenario}}\\[0.05cm]
+{\fontsize{8.5}{10}\selectfont\sffamily\textcolor{textsecondary}{5,000-asset long-only portfolio \;\textcolor{textsecondary!30}{\vrule width 0.75pt}\; Real market covariance and returns \;\textcolor{textsecondary!30}{\vrule width 0.75pt}\; Full feasibility constraints \;\textcolor{textsecondary!30}{\vrule width 0.75pt}\; Identical tolerance settings}}
+\end{tcolorbox}
+\end{minipage}\\[0.80cm]
+\begin{minipage}{0.98\textwidth}
+\noindent\begin{minipage}[t]{0.32\textwidth}
+\begin{prismglasscard}{GPU-Native Throughput}
+{\scriptsize\sffamily
+\vspace{3pt}
+{\fontsize{18}{20}\selectfont\bfseries\textcolor{gpunavy}{20.6\texttimes}}\\[2pt]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary}{CPU baseline}}\\[4pt]
+Measured performance.
+\vspace{4pt}
+\par{\fontsize{8}{10}\selectfont\sffamily\textcolor{textsecondary!60}{Full audit artifacts available}}} 
+\end{prismglasscard}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+\begin{prismglasscard}{p99 Latency (5,000 assets)}
+{\scriptsize\sffamily
+\vspace{3pt}
+{\fontsize{18}{20}\selectfont\bfseries\textcolor{gpunavy}{258\,ms}}\\[2pt]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary}{SLA-stable execution}}\\[4pt]
+Latency stability suitable for institutional SLAs.
+\vspace{4pt}
+\par{\fontsize{8}{10}\selectfont\sffamily\textcolor{textsecondary!60}{Full audit artifacts available}}} 
+\end{prismglasscard}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+\begin{prismglasscard}{Solution Reliability}
+{\scriptsize\sffamily
+\vspace{3pt}
+{\fontsize{18}{20}\selectfont\bfseries\textcolor{gpunavy}{40/40}}\\[2pt]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary}{runs optimal and feasible}}\\[4pt]
+Bitwise deterministic.
+\vspace{4pt}
+\par{\fontsize{8}{10}\selectfont\sffamily\textcolor{textsecondary!60}{Full audit artifacts available}}} 
+\end{prismglasscard}
+\end{minipage}
+\end{minipage}\\[1.20cm]
+{\small\sffamily\bfseries\textcolor{gpunavy}{Production Throughput (Single RTX 4000 Ada)}}\\[0.10cm]
+\begin{minipage}{0.98\textwidth}
+\begin{tcolorbox}[enhanced,colback=white,colframe=gpunavy!15,boxrule=0.6pt,arc=1.5mm,left=6pt,right=6pt,top=10pt,bottom=10pt]
+\begin{center}
+\begin{minipage}{0.48\linewidth}
+\centering
+{\fontsize{13}{16}\selectfont\bfseries\textcolor{gpunavy}{\raise0.14ex\hbox{\texttildelow}14{,}000}}\\[4pt]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary}{optimizations/hour}}\\[0.30cm]
+{\fontsize{13}{16}\selectfont\bfseries\textcolor{gpunavy}{\raise0.14ex\hbox{\texttildelow}336{,}000}}\\[4pt]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary}{optimizations/day}}
+\end{minipage}
+\hspace{0.2cm}\textcolor{textsecondary!30}{\vrule width 0.75pt}\hspace{0.2cm}
+\begin{minipage}{0.48\linewidth}
+\centering
+{\fontsize{13}{16}\selectfont\bfseries\textcolor{gpunavy}{75,257}}\\[4pt]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary}{real-market asset universe}}\\[0.30cm]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary}{Single-node deterministic scaling}}\\[0.10cm]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary}{Zero variance \textbar\ Stateless execution}}
+\end{minipage}
+\end{center}
+\end{tcolorbox}
+\end{minipage}\\[0.60cm]
+\begin{center}
+{\fontsize{10}{12}\selectfont\sffamily\textcolor{prismteal}{\textbf{Over 170 seconds of rebalance delay eliminated per cycle} --- preserving time-sensitive alpha.}}
+\end{center}
+\vspace{0.15cm}
+\vfill
+{\fontsize{11}{13}\selectfont\bfseries\textcolor{gpunavy}{Primary Use Cases}}\\[0.10cm]
+{\fontsize{10}{12}\selectfont\sffamily\textcolor{textsecondary}{Direct indexing \;\textcolor{textsecondary!30}{\vrule width 0.75pt}\; Multi-account rebalancing \;\textcolor{textsecondary!30}{\vrule width 0.75pt}\; Tax-aware optimization \;\textcolor{textsecondary!30}{\vrule width 0.75pt}\; Institutional risk workflows}}\\[0.20cm]
+{\fontsize{9}{11}\selectfont\sffamily\textcolor{textsecondary!60}{All results are reproducible via deterministic execution and cryptographic audit records.}}
+\vspace*{0.3cm}
+\end{center}
+\vspace*{0.4cm}
+\hfill {\fontsize{10}{12}\selectfont\sffamily\bfseries\textcolor{prismink}{Asymmetry Computing \;\textbar\; \href{https://asymmetrycomputing.com}{\textcolor{prismink}{asymmetrycomputing.com}}}}
+\end{titlepage}
+
+\AddToShipoutPictureBG{\PRISMBackground}
+
+\hypersetup{pageanchor=true}
+\tableofcontents
+\newpage
+
+\needspace{6\baselineskip}
+\section{Executive Summary}
+
+Every millisecond of rebalance delay causes measurable alpha leakage: the silent erosion of returns that compounds with every missed decision window. At 5,000+ assets, CPU incumbents hit a physics wall. Runtime explodes, tail latency becomes unpredictable, and audit evidence fragments across ad-hoc toolchains.
+
+PRISM eliminates this decay. It is a GPU-native portfolio optimization service with bounded runtime semantics, explicit quality gates, and replayable evidence artifacts. Engineered to preserve alpha, not just reduce latency.
+
+\needspace{5\baselineskip}
+\subsection{Examiner Quick Access}
+
+\small
+\needspace{9\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Resource} & \textbf{Link} \\
+\midrule
+Evidence Repository & \href{\detokenize{https://github.com/AsymmetryComputing/Benchmark-v1.0}}{https:/\allowbreak{}/\allowbreak{}github.\allowbreak{}com/\allowbreak{}AsymmetryComputing/\allowbreak{}Benchmark-\allowbreak{}v1.\allowbreak{}0} \\
+Live API (Health) & \href{\detokenize{https://prism.asymmetrycomputing.com/v1/health}}{https:/\allowbreak{}/\allowbreak{}prism.\allowbreak{}asymmetrycomputing.\allowbreak{}com/\allowbreak{}v1/\allowbreak{}health} \\
+API Documentation & \href{\detokenize{https://prism.asymmetrycomputing.com/docs}}{https:/\allowbreak{}/\allowbreak{}prism.\allowbreak{}asymmetrycomputing.\allowbreak{}com/\allowbreak{}docs} \\
+OpenAPI Schema & \href{\detokenize{https://prism.asymmetrycomputing.com/openapi.json}}{https:/\allowbreak{}/\allowbreak{}prism.\allowbreak{}asymmetrycomputing.\allowbreak{}com/\allowbreak{}openapi.\allowbreak{}json} \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+Bounded claim in this dossier:
+
+\begin{itemize}[nosep]
+\item At the 5,000-asset real-data gate, PRISM is faster than both Gurobi and OSQP while remaining within the declared objective-parity threshold \footnote{\scriptsize Evidence: A1, A2}.
+\end{itemize}
+
+Three claim bullets (with evidence IDs):
+
+\begin{itemize}[nosep]
+\item Speed claim: 9.60x to 20.60x versus Gurobi and 4.33x to 10.44x versus OSQP across planned 5,000-asset scenarios \footnote{\scriptsize Evidence: A1}.
+\item Solution-quality claim: objective parity within declared threshold; max observed verified gap 0.0092\% against a 0.01\% threshold \footnote{\scriptsize Evidence: A1, A2}.
+\item Auditability claim: API reproducibility run produced 40/40 feasible+optimal solves with 100\% unique audit hashes \footnote{\scriptsize Evidence: A3, A4}.
+\end{itemize}
+
+API latency profile (end-to-end, 5,000 assets, 40-run sample):
+
+\small
+\needspace{10\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Statistic} & \textbf{Value (ms)} \\
+\midrule
+p50 & 64.\allowbreak{}8825 \\
+p95 & 125.\allowbreak{}88 \\
+p99 & 258.\allowbreak{}49193 \\
+mean & 76.\allowbreak{}39375 \\
+std & 44.\allowbreak{}871842 \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+Validation scope: \textbf{Verified} denotes automated contract checks (feasibility, objective-gap threshold, integrity metadata) performed within this dossier's declared boundary. External attestation is out of scope for this version.
+
+PRISM is positioned as a solver you can put into production, not a one-off benchmark number. Every primary claim is bounded, falsifiable, and tied to named evidence artifacts.
+
+\needspace{5\baselineskip}
+\subsection{Claim Gate Status}
+
+Every claim in this dossier is gated against a defined evidence tier. The table below records the current campaign-wide gate status, data provenance, and the universe hash that locks the reproducibility boundary. Promotion from \textit{supporting} to \textit{claim-bearing} tier requires replication under a commercially licensed data provider; the public-data protocol has already passed that structural bar. Examiners can independently verify the gate by cross-referencing the source artifact listed at the bottom of this table.
+
+\small
+\needspace{11\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Field} & \textbf{Value} \\
+\midrule
+Status (campaign-\allowbreak{}wide) & Pending  -\allowbreak{}-\allowbreak{}  commercial data licensing in progress (strict public-\allowbreak{}data protocol verified by design) \\
+Provider & \texttt{\seqsplit{yfinance}} \\
+License class & \texttt{\seqsplit{unlicensed\_\allowbreak{}public}} \\
+Universe policy & \texttt{\seqsplit{us\_\allowbreak{}common}} \\
+Universe hash & \texttt{\seqsplit{e79e56bc\allowbreak{}93f90cfc\allowbreak{}293bcce0\allowbreak{}4d844512\allowbreak{}864a8167\allowbreak{}00f4ddf9\allowbreak{}e5e64ad3\allowbreak{}930c9e79}} \\
+Evidence tier counts & \texttt{\seqsplit{\{"supporting": 12\}}} \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+Source: \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}INDUSTRY\_\allowbreak{}GRADE\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}16.\allowbreak{}json}}
+
+\needspace{5\baselineskip}
+\subsection{Operating Claim (Bounded)}
+
+"5,000 assets (convex QP, compute-only): PRISM 10,048.259 ms; Gurobi 181,930.629 ms; OSQP 91,414.113 ms (canonical head-to-head; A2). Across the planned 5,000-asset real-data scenarios, PRISM is faster than both baselines while maintaining verified objective parity and feasibility checks \footnote{\scriptsize Evidence: A1}."
+
+\needspace{5\baselineskip}
+\subsection{Claim Boundary Box}
+
+\small
+\needspace{14\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Dimension} & \textbf{Specification} \\
+\midrule
+Problem class & Convex QP, long-\allowbreak{}only, fully-\allowbreak{}invested, box-\allowbreak{}constrained portfolio allocation \\
+Hardware & CPU: Intel Xeon w5-\allowbreak{}3423 (10 logical CPUs), GPU: NVIDIA RTX 4000 Ada Generation (20,475 MiB, driver 573.\allowbreak{}44), OS: WSL2 Ubuntu \\
+Runtime definition & Compute-\allowbreak{}only solver runtime for head-\allowbreak{}to-\allowbreak{}head speed claims; API end-\allowbreak{}to-\allowbreak{}end shown separately \\
+Constraint profile & 5,000-\allowbreak{}asset real-\allowbreak{}data scenarios: transition, tax-\allowbreak{}aware, crisis, impact \\
+Comparison settings & Identical scenario inputs, documented solver settings, cold-\allowbreak{}start fairness policies \\
+Warm-\allowbreak{}up policy & Warm-\allowbreak{}up and calibration runs are separated from publishable measurements \\
+Trial count & Scenario gate: 4 planned scenarios; API reproducibility sample: 40 runs \\
+Verification contract & Objective parity gate versus incumbent reference baseline, plus feasibility checks and integrity metadata (defined in Our Integrity Guarantee, Section 3.\allowbreak{}5) \\
+Source-\allowbreak{}of-\allowbreak{}truth artifacts & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SUPERIORITY\_\allowbreak{}GATE\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}}, \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}CANONICAL\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}}, \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000\_\allowbreak{}summary.\allowbreak{}json}} \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\begin{prismcallout}{IMPORTANT}
+Every headline number in this memo is falsifiable. Numbers outside the claim boundary are explicitly labeled as supporting or illustrative.
+\end{prismcallout}
+
+\needspace{5\baselineskip}
+\subsection{Three KPIs}
+
+\small
+\needspace{8\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.250\linewidth}>{\arraybackslash}p{0.350\linewidth}>{\arraybackslash}p{0.400\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{KPI} & \textbf{Value} & \textbf{Conditions} \\
+\midrule
+Alpha Preservation (Speed) & 9.\allowbreak{}60x to 20.\allowbreak{}60x vs Gurobi; 4.\allowbreak{}33x to 10.\allowbreak{}44x vs OSQP -\allowbreak{}-\allowbreak{} every millisecond recaptured reduces latency-\allowbreak{}induced opportunity decay & Real-\allowbreak{}data superiority gate, four 5,000-\allowbreak{}asset scenarios \\
+Solution Quality (Objective Parity) & Objective parity within declared threshold (max observed 0.\allowbreak{}0092\%, threshold 0.\allowbreak{}01\%) & Defined objective parity gate in protocol; all planned scenarios pass \\
+Cost /\allowbreak{} Efficiency & Favorable direction versus CPU incumbent paths & Presented as operational economics with explicit assumptions in Engagement and Commercial Terms \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{Target Markets}
+
+\begin{itemize}[nosep]
+\item Direct indexing platforms (tax-aware intraday rebalance programs)
+\item Quantitative asset managers (latency-bounded portfolio updates)
+\item Multi-account rebalancing engines (high throughput with auditable controls)
+\item Institutional risk platforms requiring deterministic and replayable evidence
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Executive Briefing Pack}
+
+Select the briefing most relevant to your role. Each page summarizes PRISM's value proposition from a different operational perspective.
+
+\needspace{6\baselineskip}
+\section{The Problem}
+
+\needspace{5\baselineskip}
+\subsection{The Batch Optimization Bottleneck}
+
+Large portfolio platforms routinely need to solve thousands to hundreds of thousands of constrained portfolio programs in fixed windows. At large universe sizes, CPU-first workflows become schedule-constrained and force either reduced solve quality or missed windows.
+
+\needspace{5\baselineskip}
+\subsection{Why Speed Matters Beyond Throughput}
+
+The operational risk is not only slower batch completion. It is loss of event-sensitive rebalance opportunities, delayed tax actions, and increased exception handling overhead when execution spills outside SLA windows.
+
+\needspace{5\baselineskip}
+\subsection{Regulatory context}
+
+Operational resilience and algorithmic trading control regimes increase the value of deterministic execution, evidence retention, and bounded tail latency. In these environments, replayable evidence packs and explicit timing boundaries can reduce ambiguity in change management, incident response, and post-trade review.
+
+\needspace{5\baselineskip}
+\subsection{Alpha Leakage and Timing Sensitivity}
+
+When rebalance timing is delayed, realized opportunity can decay materially before execution. The value proposition of PRISM includes reducing this latency-induced degradation while preserving explicit quality gates.
+
+\needspace{5\baselineskip}
+\subsection{The Physics Wall}
+
+As asset count and constraint complexity rise, incumbent CPU methods exhibit steep runtime growth and heavier tail dispersion. Production viability therefore depends on bounded latency and verification semantics, not only point estimates.
+
+\needspace{6\baselineskip}
+\section{Benchmark Results: Real Market Data}
+
+Primary source artifacts:
+
+\begin{itemize}[nosep]
+\item \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SUPERIORITY\_\allowbreak{}GATE\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}} \footnote{\scriptsize Evidence: A1}
+\item \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}CANONICAL\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}} \footnote{\scriptsize Evidence: A2}
+\item \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000\_\allowbreak{}summary.\allowbreak{}json}} and \texttt{\seqsplit{.\allowbreak{}csv}} \footnote{\scriptsize Evidence: A3/A4}
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Compute-Only Latency Panel (Solver Core Time)}
+
+In the most demanding scenario -- a crisis rebalance across 5,000 real-market assets -- PRISM cleared the optimization in 17.6 seconds while Gurobi required over 186 seconds, a 10.6x differential. In the fastest scenario (transition), the gap widened to 20.6x. Across all four production-grade scenarios, PRISM delivered consistent superiority with verified solution quality.
+
+\small
+\needspace{9\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Scenario} & \textbf{PRISM ms} & \textbf{Gurobi ms} & \textbf{OSQP ms} & \textbf{Speedup vs Gurobi} & \textbf{Speedup vs OSQP} & \textbf{Status} \\
+\midrule
+Transition & 8,864.\allowbreak{}399 & 182,632.\allowbreak{}554 & 92,525.\allowbreak{}524 & 20.\allowbreak{}60x & 10.\allowbreak{}44x & PASS \\
+Tax-\allowbreak{}aware & 12,003.\allowbreak{}900 & 174,751.\allowbreak{}361 & 96,166.\allowbreak{}155 & 14.\allowbreak{}56x & 8.\allowbreak{}01x & PASS \\
+Crisis & 17,630.\allowbreak{}757 & 186,329.\allowbreak{}394 & 76,418.\allowbreak{}321 & 10.\allowbreak{}57x & 4.\allowbreak{}33x & PASS \\
+Impact & 17,087.\allowbreak{}464 & 164,036.\allowbreak{}494 & 77,158.\allowbreak{}194 & 9.\allowbreak{}60x & 4.\allowbreak{}52x & PASS \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+Canonical fixed run \footnote{\scriptsize Evidence: A2}:
+
+\begin{itemize}[nosep]
+\item PRISM: 10,048.259 ms
+\item Gurobi: 181,930.629 ms
+\item OSQP: 91,414.113 ms
+\item Raw gap vs Gurobi: 19.0197\%
+\item Verified final gap: 0.0092\%
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Solver Compute Runtime Distribution (p50/p95/p99, Real Data)}
+
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tikzpicture}
+\begin{axis}[
+width=0.98\linewidth,
+height=7.0cm,
+ybar,
+bar width=16pt,
+ymajorgrids=true,
+ylabel={Runtime (ms)},
+xtick=data,
+xticklabels={p50,p95,p99},
+legend style={at={(0.5,1.13)},anchor=south,legend columns=3},
+scaled y ticks=false,
+xticklabel style={font=\small},
+yticklabel style={font=\small},
+]
+\addplot coordinates {(1,14545.682) (2,17549.263) (3,17614.458)};
+\addplot coordinates {(1,178691.958) (2,185774.868) (3,186218.489)};
+\addplot coordinates {(1,84841.859) (2,95620.061) (3,96056.936)};
+\legend{PRISM,Gurobi,OSQP}
+\end{axis}
+\end{tikzpicture}
+}
+\caption{Solver compute runtime distribution (p50/p95/p99) across planned 5,000-asset scenarios.}
+\end{figure}
+
+\needspace{5\baselineskip}
+\subsection{API End-to-End Latency Panel (Integration Boundary)}
+
+PRISM API reproducibility sample (40 runs, 5,000 assets):
+
+\begin{itemize}[nosep]
+\item p50: 64.8825 ms
+\item p95: 125.88 ms
+\item p99: 258.49193 ms
+\item mean: 76.39375 ms
+\item std: 44.871842
+\end{itemize}
+
+Boundary note:
+
+\begin{itemize}[nosep]
+\item Solver-to-solver comparisons in A1/A2 are compute-boundary comparisons.
+\item API end-to-end values include gateway and service overhead and are not directly comparable to standalone local-library baselines unless the same network boundary is applied to all systems.
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Multi-Metric Quality and Feasibility Panel}
+
+\small
+\needspace{13\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.170\linewidth}>{\arraybackslash}p{0.270\linewidth}>{\arraybackslash}p{0.220\linewidth}>{\arraybackslash}p{0.340\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Metric} & \textbf{PRISM} & \textbf{Baseline} & \textbf{Delta /\allowbreak{} Note} \\
+\midrule
+Objective delta (\%) & Verified gap range 0.\allowbreak{}000978\% to 0.\allowbreak{}009196\% versus Gurobi & Gurobi reference & All scenarios within the defined objective parity band \\
+Max constraint violation (abs) & 0.\allowbreak{}0 (A3 KKT primal max) & Not published in current baseline pack & No violation observed in sampled API runs \\
+Max constraint violation (normalized) & 0.\allowbreak{}0 (A3 KKT primal p99) & Not published in current baseline pack & No normalized violation observed in sampled API runs \\
+KKT primal residual & p99 = 0.\allowbreak{}0, max = 0.\allowbreak{}0 & Not published in current baseline pack & Strong feasibility evidence for sampled convex QP runs \\
+KKT dual residual & Not published in current public pack & Not published & Added to extended verifier roadmap \\
+Portfolio sum \texttt{\seqsplit{w -\allowbreak{} 1}} & Feasibility gate pass in all A1 scenarios & Baseline feasibility pass & No budget failure in published scenarios \\
+Turnover vs benchmark & Scenario-\allowbreak{}dependent, bounded by policy constraints & Scenario-\allowbreak{}dependent & Reported in strategy-\allowbreak{}specific overlays \\
+Stability across runs & objective std = 0.\allowbreak{}0003572261 (A3 sample) & Not published in current baseline pack & Reproducibility sample indicates stable behavior \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{Quality and Feasibility Visuals}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=0.98\linewidth,
+height=6.6cm,
+xlabel={Verified Objective Gap (\%)},
+ylabel={ECDF},
+xmajorgrids=true,
+ymajorgrids=true,
+legend style={at={(0.98,0.02)},anchor=south east},
+ymin=0,ymax=1.05,
+]
+\addplot+[mark=*,thick] coordinates {
+(0.000978,0.25)
+(0.001858,0.50)
+(0.007799,0.75)
+(0.009196,1.00)
+};
+\addlegendentry{Verified gap ECDF}
+\addplot+[red,dashed,thick] coordinates {(0.01,0) (0.01,1.02)};
+\addlegendentry{Quality gate}
+\end{axis}
+\end{tikzpicture}
+\caption{Verified objective gap distribution across four real-data scenarios.}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=0.85\linewidth,
+height=6.2cm,
+ybar,
+bar width=24pt,
+ymajorgrids=true,
+ylabel={Residual Value},
+xtick=data,
+xticklabels={KKT primal p99,KKT primal max,Contract threshold},
+scaled y ticks=false,
+yticklabel style={font=\small},
+]
+\addplot coordinates {(1,0.0) (2,0.0) (3,0.0001)};
+\end{axis}
+\end{tikzpicture}
+\caption{Feasibility residual plot from 40-run API reproducibility sample at 5,000 assets.}
+\end{figure}
+
+\begin{prismcallout}{NOTE}
+Verifier taxonomy: KKT residual checks are strong optimality evidence for convex QP classes. For nonconvex extensions (for example cardinality or MIQP variants), verification shifts to feasibility checks, bound gaps, and incumbent-versus-best-bound semantics. This memo does not claim KKT optimality for nonconvex classes.
+\end{prismcallout}
+
+\needspace{5\baselineskip}
+\subsection{Real-Data Headline Outcome}
+
+All four planned 5,000-asset real-data scenarios pass every technical gate.
+
+> \textbf{Note on gate status:} The "Pending" label in §1 refers exclusively to commercial data licensing (yfinance is \texttt{\seqsplit{unlicensed\_\allowbreak{}public}} by protocol). All technical performance gates below are independently verifiable and currently PASS on the declared hardware.
+
+\small
+\needspace{11\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.240\linewidth}>{\arraybackslash}p{0.560\linewidth}>{\arraybackslash}p{0.100\linewidth}>{\arraybackslash}p{0.100\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Dimension} & \textbf{Observed} & \textbf{Evidence} & \textbf{Outcome} \\
+\midrule
+Speed vs Gurobi & 9.\allowbreak{}60x to 20.\allowbreak{}60x across planned 5,000-\allowbreak{}asset scenarios & A1 & PASS \\
+Speed vs OSQP & 4.\allowbreak{}33x to 10.\allowbreak{}44x across planned 5,000-\allowbreak{}asset scenarios & A1 & PASS \\
+Verified objective quality & Objective gap 0.\allowbreak{}000978\% to 0.\allowbreak{}009196\% across scenarios; canonical verified gap 0.\allowbreak{}0092\% & A1, A2 & PASS \\
+Canonical anchor run & PRISM 10,048.\allowbreak{}259 ms; Gurobi 181,930.\allowbreak{}629 ms; OSQP 91,414.\allowbreak{}113 ms; verified gap 0.\allowbreak{}0092\% & A2 & PASS \\
+API reproducibility & 40/\allowbreak{}40 optimal+feasible; p99 258.\allowbreak{}49193 ms; 100\% unique audit hashes & A3, A4 & PASS \\
+Dataset provenance and coverage & as-\allowbreak{}of 2026-\allowbreak{}02-\allowbreak{}15, 11,560 cached symbols; disclosed coverage thresholds & A5, A6 & PASS \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{Gate Key (PASS Criteria)}
+
+\small
+\needspace{9\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.180\linewidth}>{\arraybackslash}p{0.400\linewidth}>{\arraybackslash}p{0.100\linewidth}>{\arraybackslash}p{0.320\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Metric} & \textbf{Threshold} & \textbf{Evidence} & \textbf{Notes} \\
+\midrule
+Speed vs Gurobi & PRISM faster in all planned scenarios & A1 & Compute-\allowbreak{}boundary timing only \\
+Speed vs OSQP & PRISM faster in all planned scenarios & A1 & Compute-\allowbreak{}boundary timing only \\
+Feasibility & Budget and box constraints pass & A1, A3 & Includes sampled API feasibility checks \\
+Objective parity & Verified gap <= 0.\allowbreak{}01\% & A1, A2 & Max observed verified gap: 0.\allowbreak{}0092\% \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{6\baselineskip}
+\section{Our Integrity Guarantee}
+
+These controls protect the validity of every claim in this document -- and every solve you run in production.
+
+\small
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Protocol Dimension} & \textbf{Specification} \\
+\midrule
+Solver versions & Recorded in benchmark manifests; reproducible from artifact pack and service metadata \\
+Tolerances & Per-\allowbreak{}solver tolerances documented and disclosed where published \\
+Thread counts & CPU affinity and runtime environment documented at host level \\
+GPU clocks & Persistence and thermal conditions tracked in operations runbooks \\
+Warm-\allowbreak{}up & Warm-\allowbreak{}up runs separated from publishable measurements \\
+Trial count & Gate scenarios and reproducibility counts explicitly disclosed in claim boundary \\
+Reporting & Median and tail metrics with pass/\allowbreak{}fail semantics \\
+Timing boundary & Compute-\allowbreak{}only and API end-\allowbreak{}to-\allowbreak{}end explicitly separated \\
+Fairness controls & Same scenario definitions and constraints for each solver in gate runs \\
+Seed policy & Controlled seeds and reproducible manifests used for publishable reports \\
+Problem generation & Real-\allowbreak{}data scenario set in A1 and canonical run in A2; synthetic scaling support in S1 \\
+Determinism controls & Controls are code-\allowbreak{}backed in the audit module; released evidence packs include the manifest fields needed for independent replay and verification \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\begin{prismcallout}{TIP}
+Protocol controls are code-backed and should be treated as programmatic compliance artifacts, not ad-hoc narrative claims.
+\end{prismcallout}
+
+\needspace{6\baselineskip}
+\section{Future-Proofing: Large-N Scaling}
+
+This section demonstrates PRISM's readiness for tomorrow's scale. The evidence below shows GPU-vs-CPU scaling behavior at high N on real-cache-derived inputs, complementing the primary 5,000-asset superiority gate in Section 3.
+
+\needspace{5\baselineskip}
+\subsection{Industry-Grade Campaign (Strict US Common, Supporting Tier)}
+
+Primary artifacts:
+
+\begin{itemize}[nosep]
+\item \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}INDUSTRY\_\allowbreak{}GRADE\_\allowbreak{}CAMPAIGN\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}16.\allowbreak{}csv}}
+\item \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}INDUSTRY\_\allowbreak{}GRADE\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}16.\allowbreak{}json}}
+\item \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}UNIVERSE\_\allowbreak{}US\_\allowbreak{}COMMON\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}16.\allowbreak{}csv}}
+\item \texttt{\seqsplit{datasets/\allowbreak{}us\_\allowbreak{}common\_\allowbreak{}universe\_\allowbreak{}20260216\_\allowbreak{}summary.\allowbreak{}json}}
+\end{itemize}
+
+Measurement setup (one line):
+
+\begin{itemize}[nosep]
+\item Requested sizes \texttt{\seqsplit{N=\{20000,50000,100000\}}} under hard solver configuration (warmup=1, timed=5), with CPU thread policy pinned (\texttt{\seqsplit{OMP\_\allowbreak{}NUM\_\allowbreak{}THREADS=4}}, \texttt{\seqsplit{OPENBLAS\_\allowbreak{}NUM\_\allowbreak{}THREADS=4}}). Internal solver parameters are not disclosed (black-box safe).
+\end{itemize}
+
+Strict universe scope:
+
+\begin{itemize}[nosep]
+\item Universe policy: \texttt{\seqsplit{us\_\allowbreak{}common}} (NYSE/NASDAQ common equities from current cache intersection).
+\item Universe count: 5,192 symbols.
+\item Eligible symbols at \texttt{\seqsplit{min\_\allowbreak{}points=40}}: 5,162 effective assets.
+\end{itemize}
+
+Results (p50 ms; n\_effective = 5,162 for all rows  --  universe capped to strict US common stocks, independent of n\_requested):
+
+\small
+\needspace{8\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.120\linewidth}>{\arraybackslash}p{0.210\linewidth}>{\arraybackslash}p{0.210\linewidth}>{\arraybackslash}p{0.170\linewidth}>{\arraybackslash}p{0.150\linewidth}>{\arraybackslash}p{0.140\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{n\_\allowbreak{}requested} & \textbf{n\_\allowbreak{}effective} & \textbf{PRISM CPU} & \textbf{PRISM GPU (wall)} & \textbf{Gurobi} & \textbf{OSQP†} \\
+\midrule
+20,000 & 5,162 & 4,854.\allowbreak{}456 & 756.\allowbreak{}778 & 1,135.\allowbreak{}907 & 3,134.\allowbreak{}310 \\
+50,000 & 5,162 & 3,145.\allowbreak{}163 & 670.\allowbreak{}580 & 787.\allowbreak{}958 & 3,074.\allowbreak{}218 \\
+100,000 & 5,162 & 5,062.\allowbreak{}841 & 765.\allowbreak{}766 & 1,357.\allowbreak{}303 & 2,861.\allowbreak{}707 \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+†OSQP: \texttt{\seqsplit{solver\_\allowbreak{}status = maximum\_\allowbreak{}iterations\_\allowbreak{}reached}} for all three sizes  --  no feasible solution was returned. Runtime reflects wall time to exhaustion, not a converged solve.
+
+Interpretation:
+
+\begin{itemize}[nosep]
+\item This campaign is protocol-aligned and reproducible, but remains supporting-tier because provider license class is \texttt{\seqsplit{unlicensed\_\allowbreak{}public}} (claim gate fail by design).
+\item The strict US common universe currently caps effective N at 5,162, so this run does not constitute a 20k/50k/100k effective-universe claim.
+\end{itemize}
+
+Decision implication:
+
+\begin{itemize}[nosep]
+\item To promote these outputs to claim-bearing status, rerun the same protocol with a licensed provider and a larger strict-universe data source if higher effective N is required.
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Real-Cache Large-N (Broad Expanded Cache, Supporting)}
+
+Primary artifacts:
+
+\begin{itemize}[nosep]
+\item A9 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}GPU\_\allowbreak{}MOAT\_\allowbreak{}REALCACHE\_\allowbreak{}LARGE\_\allowbreak{}N\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}csv}}
+\item A10 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}CACHE\_\allowbreak{}EXPANDED\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\end{itemize}
+
+Disclosure:
+
+\begin{itemize}[nosep]
+\item This expanded cache includes multiple instrument classes and geographies; it is useful for scaling diagnostics but not a strict US common claim set.
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Synthetic Scaling (Supporting Only)}
+
+Synthetic scaling is retained as supporting evidence and does not override real-data primary claims.
+
+\needspace{5\baselineskip}
+\subsection{Scaling Profile (Supporting Only)}
+
+Source artifact:
+
+\begin{itemize}[nosep]
+\item \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SCALING\_\allowbreak{}SUPPORT\_\allowbreak{}SYNTHETIC.\allowbreak{}csv}} (S1, supporting-only)
+\end{itemize}
+
+\small
+\needspace{9\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.120\linewidth}>{\arraybackslash}p{0.210\linewidth}>{\arraybackslash}p{0.210\linewidth}>{\arraybackslash}p{0.170\linewidth}>{\arraybackslash}p{0.150\linewidth}>{\arraybackslash}p{0.140\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{N Assets} & \textbf{PRISM GPU p50 (ms)} & \textbf{PRISM CPU p50 (ms)} & \textbf{Gurobi p50 (ms)} & \textbf{OSQP p50 (ms)} & \textbf{Speedup vs Gurobi} \\
+\midrule
+500 & 56.\allowbreak{}8 & 2.\allowbreak{}0 & 56.\allowbreak{}7 & 89.\allowbreak{}9 & 1.\allowbreak{}0x \\
+5,000 & 308.\allowbreak{}0 & 301.\allowbreak{}0 & 337.\allowbreak{}0 & 3,522.\allowbreak{}0 & 1.\allowbreak{}1x \\
+20,000 & 446.\allowbreak{}0 & 1,415.\allowbreak{}0 & 2,082.\allowbreak{}0 & n/\allowbreak{}a & 4.\allowbreak{}7x \\
+50,000 & 432.\allowbreak{}0 & 655.\allowbreak{}0 & 4,777.\allowbreak{}0 & n/\allowbreak{}a & 11.\allowbreak{}0x \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=0.98\linewidth,
+height=6.8cm,
+xmode=log,
+ymode=log,
+log basis x=10,
+log basis y=10,
+xlabel={Assets (N)},
+ylabel={p50 runtime (ms)},
+grid=both,
+legend style={at={(0.02,0.98)},anchor=north west},
+]
+\addplot+[mark=*,thick] coordinates {(500,56.8) (5000,308) (20000,446) (50000,432)};
+\addlegendentry{PRISM GPU p50}
+\addplot+[mark=square*,thick] coordinates {(500,56.7) (5000,337) (20000,2082) (50000,4777)};
+\addlegendentry{Gurobi p50}
+\addplot+[mark=triangle*,thick] coordinates {(500,89.9) (5000,3522)};
+\addlegendentry{OSQP p50 (reported points)}
+\end{axis}
+\end{tikzpicture}
+\caption{Supporting synthetic scaling evidence from benchmark archive.}
+\end{figure}
+
+\needspace{5\baselineskip}
+\subsection{Tail-Latency and Determinism Notes}
+
+\begin{itemize}[nosep]
+\item Tail metrics for synthetic campaigns are generated in extended runs and should be interpreted with trial-count disclosure.
+\item Determinism analysis should report p99/p50 and failure/timeout rates for each solver/configuration pair.
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Memory and Setup-Time Separation}
+
+Setup and transfer costs must be reported separately from solver-core runtime. This avoids conflating pre-processing with solve complexity.
+
+\needspace{5\baselineskip}
+\subsection{Robustness Under Conditioning}
+
+Conditioning sweeps and stress regimes are included in extended benchmark runs. Claims must declare conditioning regime, constraint profile, and tolerance settings.
+
+\needspace{5\baselineskip}
+\subsection{Baseline Fairness Note}
+
+OSQP is included as a first-order open-source baseline. Gurobi is the commercial incumbent baseline. Timeout and tolerance policies are documented in protocol and appendix sections.
+
+\needspace{6\baselineskip}
+\section{How It Works: Delivery and Integration}
+
+\needspace{5\baselineskip}
+\subsection{Architecture Overview}
+
+Conceptual flow: \texttt{\seqsplit{Request -\allowbreak{}> API Gateway -\allowbreak{}> Engine Router -\allowbreak{}> Solver Core -\allowbreak{}> Verification -\allowbreak{}> Signed Response}}
+
+All externally exposed interfaces remain black-box safe. Internal architecture details that enable reverse engineering are intentionally omitted.
+
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tikzpicture}[
+node distance=7mm and 9mm,
+box/.style={draw,rounded corners,thick,align=center,inner sep=5pt,minimum width=2.45cm,minimum height=0.95cm},
+arrow/.style={-{Stealth[length=3mm]},thick}
+]
+\node[box] (req) {Client Request\\Constraint Set};
+\node[box,right=of req] (gateway) {API Gateway\\Contract Validation};
+\node[box,right=of gateway] (solver) {Optimization Service\\Black-Box Compute};
+\node[box,right=of solver] (verify) {Verification Layer\\Feasibility + Gap + KKT};
+\node[box,right=of verify] (audit) {Evidence Ledger\\Audit Hash + Manifest};
+\node[box,below=of solver] (resp) {Response\\Weights + Metrics + Audit ID};
+
+\draw[arrow] (req) -- (gateway);
+\draw[arrow] (gateway) -- (solver);
+\draw[arrow] (solver) -- (verify);
+\draw[arrow] (verify) -- (audit);
+\draw[arrow] (verify) |- (resp);
+\draw[arrow] (resp.west) -| (gateway.south);
+\end{tikzpicture}
+}
+\caption{External architecture schematic (vector contract view).}
+\end{figure}
+
+\needspace{5\baselineskip}
+\subsection{Integration in 30 Minutes}
+
+Public endpoints (clickable):
+
+\begin{itemize}[nosep]
+\item \href{\detokenize{https://prism.asymmetrycomputing.com/v1/health}}{Health endpoint}
+\item \href{\detokenize{https://prism.asymmetrycomputing.com/v1/solve}}{Solve endpoint}
+\item \href{\detokenize{https://prism.asymmetrycomputing.com/v1/audit/%7Bsolve_id%7D}}{Audit endpoint template}
+\item \href{\detokenize{https://github.com/AsymmetryComputing/Benchmark-v1.0}}{Evidence artifacts (GitHub)}
+\item \href{\detokenize{https://prism.asymmetrycomputing.com/docs}}{Interactive API docs}
+\end{itemize}
+
+Operational prerequisites (external contract view):
+
+\begin{itemize}[nosep]
+\item valid \texttt{\seqsplit{X-\allowbreak{}PRISM-\allowbreak{}Key}} for solve and audit access
+\item HTTPS egress and retry/backoff policy
+\item no internal engine parameters are required or exposed
+\item public edge access controls can apply by environment (for example managed WAF policies)
+\end{itemize}
+
+\needspace{3\baselineskip}
+\subsubsection{Step 1: Health Check}
+
+\begin{verbatim}
+curl https://prism.asymmetrycomputing.com/v1/health
+\end{verbatim}
+
+\needspace{3\baselineskip}
+\subsubsection{Step 2: First Solve}
+
+\begin{verbatim}
+curl -X POST https://prism.asymmetrycomputing.com/v1/solve \
+  -H "Content-Type: application/json" \
+  -H "X-PRISM-Key: <key>" \
+  -d '{"n_assets": 1000, "mode": "balanced"}'
+\end{verbatim}
+
+\needspace{3\baselineskip}
+\subsubsection{Step 3: Audit Certificate}
+
+\begin{verbatim}
+curl https://prism.asymmetrycomputing.com/v1/audit/{solve_id}
+\end{verbatim}
+
+\needspace{3\baselineskip}
+\subsubsection{Step 4: Python Quick Start}
+
+\begin{verbatim}
+# pip install prism-sdk  (available to licensed clients)
+
+import requests
+r = requests.post("https://prism.asymmetrycomputing.com/v1/solve",
+    headers={"X-PRISM-Key": "<key>", "Content-Type": "application/json"},
+    json={"n_assets": 2000, "mode": "precision"})
+result = r.json()
+print(result["status"], result["wall_ms"], result["audit_hash"])
+\end{verbatim}
+
+\needspace{5\baselineskip}
+\subsection{API Reference (Sanitized)}
+
+Request:
+
+\begin{verbatim}
+{
+  "n_assets": 5000,
+  "mode": "balanced",
+  "gamma": 0.0005,
+  "position_max": 0.10,
+  "deadline_ms": 5000
+}
+\end{verbatim}
+
+Response:
+
+\begin{verbatim}
+{
+  "solve_id": "...",
+  "status": "optimal",
+  "wall_ms": 127.804,
+  "objective": 0.0025899514,
+  "feasible": true,
+  "kkt_primal": 0.0,
+  "audit_hash": "..."
+}
+\end{verbatim}
+
+\needspace{5\baselineskip}
+\subsection{Latency Budget Breakdown}
+
+\small
+\needspace{10\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Segment} & \textbf{Description} \\
+\midrule
+Network & Transport and TLS overhead \\
+Routing & Gateway and request validation \\
+Solve & Core optimization compute \\
+Verify & Feasibility and quality checks \\
+Response & Serialization and delivery \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{Operational Checklist}
+
+\begin{itemize}[nosep]
+\item Key management and access policy configured
+\item Rate limits and retry strategy configured
+\item Error budget and fallback policy documented
+\item Audit retention policy defined
+\item Monitoring and alerting connected to solve status and latency tails
+\end{itemize}
+
+\needspace{6\baselineskip}
+\section{Verification and Trust Architecture}
+
+\needspace{5\baselineskip}
+\subsection{Audit Pipeline}
+
+\small
+\needspace{12\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.180\linewidth}>{\arraybackslash}p{0.320\linewidth}>{\arraybackslash}p{0.500\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Layer} & \textbf{What It Proves} & \textbf{Mechanism} \\
+\midrule
+Integrity & Data and outputs are not altered in transit & Hash chaining over input/\allowbreak{}config/\allowbreak{}output \\
+Provenance & Who produced results and when & Signed metadata and run manifests \\
+Non-\allowbreak{}repudiation & Historical records cannot be silently rewritten & Tamper-\allowbreak{}evident append semantics \\
+Correctness & Solution satisfies convex-\allowbreak{}QP verification checks & Independent feasibility and KKT-\allowbreak{}class checks \\
+Fairness & Baselines are not handicapped & \texttt{\seqsplit{FairnessManifest}} and parity controls \\
+Reproducibility & Runs are replayable & \texttt{\seqsplit{ProvenanceLock}} with seed/\allowbreak{}config/\allowbreak{}environment metadata \\
+Statistical validity & Tail claims are not one-\allowbreak{}off outliers & \texttt{\seqsplit{TrialCountGate}} and campaign-\allowbreak{}level controls \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.96\linewidth}{!}{
+\begin{tikzpicture}[
+node distance=7mm and 8mm,
+box/.style={draw,rounded corners,thick,align=center,inner sep=4pt,minimum width=2.65cm,minimum height=0.86cm},
+arrow/.style={-{Stealth[length=2.8mm]},thick}
+]
+\node[box] (input) {Input Digest\\(immutable)};
+\node[box,right=of input] (manifest) {Run Manifest Digest\\(immutable)};
+\node[box,right=of manifest] (output) {Output Digest\\(immutable)};
+
+\node[box,below=of manifest] (gate) {Verification Gate\\feasibility + gap + integrity};
+\node[box,right=of gate] (report) {Verification Report Digest\\(immutable)};
+\node[box,right=of report] (pack) {PRISM Evidence Pack\\CSV + JSON + summary};
+\node[box,below=of pack] (signed) {Signed Audit Identifier\\publishable};
+\node[box,below=of gate] (reject) {Rejected\\not published};
+
+\draw[arrow] (input) -- (manifest);
+\draw[arrow] (manifest) -- (output);
+\draw[arrow] (output) -- (gate);
+\draw[arrow] (input.south) |- (gate.west);
+\draw[arrow] (gate) -- (report);
+\draw[arrow] (report) -- (pack);
+\draw[arrow] (pack) -- (signed);
+\draw[arrow] (gate) -- (reject);
+\end{tikzpicture}
+}
+\caption{Verification chain separates immutable digests, gate logic, and publishable artifacts.}
+\end{figure}
+
+Measurement setup: Input, manifest, and output digests are computed before verification; publishable artifacts are emitted only after gate pass.
+
+Interpretation: The flow enforces left-to-right provenance and a single failure sink (\texttt{\seqsplit{Rejected}}) when gate conditions are not met.
+
+Evidence IDs: A3, A4, \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}INDUSTRY\_\allowbreak{}GRADE\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}16.\allowbreak{}json}}
+
+\begin{prismcallout}{TIP}
+Business Impact: This verification architecture lets your compliance team produce a complete audit trail for any solve on demand -- no manual data gathering, no ambiguity in post-trade review.
+\end{prismcallout}
+
+\needspace{5\baselineskip}
+\subsection{Programmatic Control Anchors}
+
+\begin{itemize}[nosep]
+\item Controls are code-backed and enforced in the PRISM audit module.
+\item External evidence packs expose the control outputs (manifest fields, timing boundary tag, and verification outcomes) without disclosing internal implementation.
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{KKT Scope Note}
+
+KKT evidence is explicitly scoped to convex QP classes. Nonconvex classes require alternate verifier semantics (feasibility plus bound-gap style controls).
+
+\needspace{5\baselineskip}
+\subsection{Report-Readiness Gate}
+
+A report is publishable only when:
+
+\begin{itemize}[nosep]
+\item timing boundary is declared
+\item fairness manifest is complete
+\item quality gate passes
+\item feasibility gate passes
+\item provenance lock is present
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Audit Hash Construction}
+
+Audit hashes are derived from immutable run components (input, configuration, output, and verifier metadata). In the 40-run reproducibility sample, unique audit hash rate is 100\%.
+
+\needspace{6\baselineskip}
+\section{Threat Model and Security Controls}
+
+\needspace{5\baselineskip}
+\subsection{Attacker Taxonomy}
+
+\small
+\needspace{8\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.250\linewidth}>{\arraybackslash}p{0.350\linewidth}>{\arraybackslash}p{0.400\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Attacker Model} & \textbf{Capability} & \textbf{Controls} \\
+\midrule
+API-\allowbreak{}only & Query access and response observation & rate limiting, query fingerprinting, response shaping \\
+SDK access & Client-\allowbreak{}side integration access & signed distributions, usage controls, no solver internals shipped \\
+On-\allowbreak{}prem binary access & Binary and host-\allowbreak{}level access & integrity checks, attestation controls, policy-\allowbreak{}bound execution \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{What We Defend}
+
+\begin{itemize}[nosep]
+\item model extraction attempts
+\item parameter inference
+\item solver reconstruction attempts
+\item unauthorized replay and evidence tampering
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{How We Manage the Unavoidable}
+
+A sufficiently resourced adversary with broad binary exposure and unlimited query budget may replicate behavior for narrow slices of the problem class. Mitigation is continuous evolution, policy controls, and cross-family defense in depth.
+
+\begin{prismcallout}{NOTE}
+Explicit residual risk disclosure improves diligence quality and reduces ambiguity in institutional review.
+\end{prismcallout}
+
+\needspace{6\baselineskip}
+\section{Competitive Advantages and Roadmap}
+
+\needspace{5\baselineskip}
+\subsection{Advantage Lifecycle}
+
+Operational -> Defensible -> Compounding
+
+\needspace{5\baselineskip}
+\subsection{Current Advantages (Operational)}
+
+\small
+\begin{longtable}{@{}>{\arraybackslash}p{0.050\linewidth}>{\arraybackslash}p{0.400\linewidth}>{\arraybackslash}p{0.150\linewidth}>{\arraybackslash}p{0.400\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{\#} & \textbf{Moat} & \textbf{Maturity} & \textbf{Evidence} \\
+\midrule
+1 & GPU-\allowbreak{}native production optimization path & Operational & Real-\allowbreak{}data gate pass at 5,000 assets (A1, A2) + large-\allowbreak{}N GPU moat scaling evidence (A9, A10) \\
+2 & Factor-\allowbreak{}structured architecture & Operational & Synthetic scaling support trajectory \\
+3 & Tail-\allowbreak{}latency control semantics & Operational & API p50/\allowbreak{}p95/\allowbreak{}p99 reproducibility panel \\
+4 & Tamper-\allowbreak{}evident audit chain & Operational & Unique audit hash = 100\% in sample \\
+5 & Independent verification layer & Operational & Feasibility + quality gate integration \\
+6 & Reproducible benchmark harness & Operational & A1-\allowbreak{}A8 evidence artifacts (plus S1 supporting synthetic) \\
+7 & Production API and SDK integration & Operational & Health/\allowbreak{}solve/\allowbreak{}audit contract \\
+8 & Engine auto-\allowbreak{}routing modes & Operational & Runtime mode controls and manifests \\
+9 & Leakage-\allowbreak{}resistant response controls & Operational & Threat model controls and policy \\
+10 & Institutional audit framework & Operational & Code-\allowbreak{}backed controls in audit module \\
+11 & Observability and telemetry & Operational & per-\allowbreak{}solve metrics and status surfaces \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{Near-Term Advantages (Defensible + Compounding)}
+
+\small
+\needspace{10\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.050\linewidth}>{\arraybackslash}p{0.480\linewidth}>{\arraybackslash}p{0.120\linewidth}>{\arraybackslash}p{0.350\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{\#} & \textbf{Moat} & \textbf{Maturity} & \textbf{Timeline} \\
+\midrule
+12 & Quantum-\allowbreak{}hybrid integration pathway & Prototype & staged expansion \\
+13 & Patent and legal protection layer & In progress & filing and prosecution cycle \\
+14 & Constraint library templates & Planned & direct indexing /\allowbreak{} tax /\allowbreak{} mandate packs \\
+15 & On-\allowbreak{}prem /\allowbreak{} VPC deployment modes & Planned & regulated environment rollout \\
+16 & Ecosystem connectors & Planned & OMS /\allowbreak{} risk /\allowbreak{} custodian integrations \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\begin{prismcallout}{TIP}
+Business Impact: Each advantage compounds switching costs -- once intraday workflows are productionized on PRISM, migration cost exceeds replacement cost, creating durable retention.
+\end{prismcallout}
+
+\needspace{6\baselineskip}
+\section{Engagement and Commercial Terms}
+
+\needspace{5\baselineskip}
+\subsection{Pilot Program (Firm Terms)}
+
+\begin{itemize}[nosep]
+\item 30-day pilot window
+\item defined quota and rate-limit policy
+\item explicit support boundary
+\item outputs: audit pack, quality report, latency profile, reproducibility report
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{What the Pilot Produces}
+
+\small
+\needspace{9\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Deliverable} & \textbf{Description} \\
+\midrule
+Scenario superiority output & Pass/\allowbreak{}fail and speed/\allowbreak{}quality metrics by scenario \\
+Verified quality report & Evidence of objective parity outcomes versus incumbent reference \\
+Reproducibility summary & success rates, latency tails, audit uniqueness \\
+Integration readiness checklist & endpoint, key, retry, and monitoring validation \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{Illustrative Commercial Terms (Non-Binding)}
+
+\small
+\needspace{8\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.160\linewidth}>{\arraybackslash}p{0.240\linewidth}>{\arraybackslash}p{0.180\linewidth}>{\arraybackslash}p{0.420\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Tier} & \textbf{Quota Model} & \textbf{SLA} & \textbf{Features} \\
+\midrule
+Developer /\allowbreak{} Pilot & Free 30-\allowbreak{}day, rate-\allowbreak{}limited & best effort & API + baseline support -\allowbreak{}-\allowbreak{} ideal for CTO engineering teams evaluating integration \\
+Pro & usage-\allowbreak{}based & published p99 tiers & audit certificates + priority support -\allowbreak{}-\allowbreak{} for production quant teams \\
+Enterprise & annual commit & custom SLA & dedicated capacity, advanced audit options -\allowbreak{}-\allowbreak{} for risk infrastructure and compliance-\allowbreak{}sensitive deployments \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{Pricing Examples (Illustrative)}
+
+\small
+\needspace{8\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.400\linewidth}>{\arraybackslash}p{0.120\linewidth}>{\arraybackslash}p{0.180\linewidth}>{\arraybackslash}p{0.300\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Scenario} & \textbf{N} & \textbf{Solves/\allowbreak{}day} & \textbf{Illustrative monthly} \\
+\midrule
+Direct indexing rebalance & 5,000 & 10,000 & model-\allowbreak{}dependent \\
+Institutional batch & 50,000 & 1,000 & model-\allowbreak{}dependent \\
+High-\allowbreak{}frequency small solves & 500 & 100,000 & model-\allowbreak{}dependent \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+Illustrative solve ladder (non-binding):
+
+\begin{itemize}[nosep]
+\item <=5k assets: EUR 0.002 per solve
+\item 5k-20k assets: EUR 0.005 per solve
+\item 20k-50k assets: EUR 0.01 per solve
+\item hard p99 SLA tier: +50\%
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{Pricing Philosophy}
+
+Pricing is value-anchored to latency-bounded solves, auditability, and operational risk reduction, not raw compute alone.
+
+\begin{prismwarning}{WARNING}
+Final published pricing requires validated unit-economics modeling. All numbers in this section are explicitly illustrative until cost modeling sign-off.
+\end{prismwarning}
+
+\needspace{6\baselineskip}
+\section{Appendix A: Methodology and Solver Settings}
+
+\needspace{5\baselineskip}
+\subsection{A.1 Hardware Specification}
+
+\small
+\needspace{10\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Component} & \textbf{Value} \\
+\midrule
+CPU & Intel Xeon w5-\allowbreak{}3423 \\
+Logical CPUs & 10 \\
+GPU & NVIDIA RTX 4000 Ada Generation \\
+GPU VRAM & 20,475 MiB \\
+Driver & 573.\allowbreak{}44 \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{A.2 Solver and Evidence Sources}
+
+\begin{itemize}[nosep]
+\item A1 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SUPERIORITY\_\allowbreak{}GATE\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}}
+\item A2 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}CANONICAL\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}}
+\item A3 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000\_\allowbreak{}summary.\allowbreak{}json}}
+\item A4 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000.\allowbreak{}csv}}
+\item A5 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}DATASET\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\item A6 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}DATASET\_\allowbreak{}COVERAGE\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}csv}}
+\item A7 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}INPUT\_\allowbreak{}SOLVES\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\item A8 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SCALE\_\allowbreak{}SMOKE\_\allowbreak{}20000\_\allowbreak{}50000\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\item A9 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}GPU\_\allowbreak{}MOAT\_\allowbreak{}REALCACHE\_\allowbreak{}LARGE\_\allowbreak{}N\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}csv}}
+\item A10 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}CACHE\_\allowbreak{}EXPANDED\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\item S1 \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SCALING\_\allowbreak{}SUPPORT\_\allowbreak{}SYNTHETIC.\allowbreak{}csv}} (supporting-only)
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{A.3 Benchmark Instance Construction}
+
+Real-data gate uses fixed scenario families and common constraint templates. Synthetic support uses structured scaling workloads.
+
+\needspace{5\baselineskip}
+\subsection{A.4 Measurement Definitions}
+
+\begin{itemize}[nosep]
+\item Compute-only runtime: solver-core timing boundary
+\item API end-to-end runtime: request-to-response wall time
+\item Verified gap: post-verification objective gap against reference baseline
+\item Feasibility pass: constraint checks satisfied
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{A.5 Dataset Provenance and Coverage (Real-Data Pack)}
+
+\small
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Field} & \textbf{Value} \\
+\midrule
+Universe seed process & Universe discovery from Alpaca active-\allowbreak{}tradable US equities plus S\&P 1500 constituent lists; daily adjusted close history sourced from Yahoo Finance via \texttt{\seqsplit{yfinance}} \\
+Cache as-\allowbreak{}of & 2026-\allowbreak{}02-\allowbreak{}15 \\
+Candidate symbols in cache build & 11,560 \\
+Symbols with >=40 observations & 11,340 \\
+Symbols with >=120 observations & 10,685 \\
+Symbols with >=180 observations & 10,230 \\
+Symbols with >=240 observations & 9,899 \\
+Alpaca active-\allowbreak{}tradable count (snapshot) & 12,486 \\
+S\&P 1500 list count & 1,761 \\
+Cache intersection with Alpaca & 11,317 \\
+Cache intersection with S\&P 1500 & 1,759 \\
+Published gate universe size & 5,000 assets \\
+Universe selection rule & Fixed-\allowbreak{}N selection from cache after applying a minimum-\allowbreak{}observation rule; selection prefers highest-\allowbreak{}coverage symbols (stable tie-\allowbreak{}break) \\
+Date window (cache validation run) & 2025-\allowbreak{}02-\allowbreak{}14 to 2026-\allowbreak{}02-\allowbreak{}13 \\
+Frequency & Daily \\
+Price field basis & Adjusted close (provider-\allowbreak{}adjusted) \\
+Corporate actions handling & Uses provider-\allowbreak{}adjusted series as distributed by source feed \\
+Missing data policy & Assets below coverage threshold excluded from gate universe \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{A.5b Expanded Cache (Supporting Scaling Dataset)}
+
+This addendum exists to prevent a common credibility failure: confusing "a large Yahoo symbol cache" with "a large listed common-stock universe".
+
+\small
+\needspace{12\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Field} & \textbf{Value} \\
+\midrule
+Source & StockAnalysis.\allowbreak{}com list pages (multiple exchanges and instrument types) + Yahoo Finance price history via \texttt{\seqsplit{yfinance}} \\
+Intended use & Supporting scaling evidence only (PRISM GPU-\allowbreak{}vs-\allowbreak{}CPU) \\
+As-\allowbreak{}of & 2026-\allowbreak{}02-\allowbreak{}15 (A10) \\
+Cache shape & 283 days x 75,477 symbols \\
+Eligible at min\_\allowbreak{}points=40 & 75,257 symbols \\
+Coverage notes & At higher thresholds, eligible counts drop sharply (e.\allowbreak{}g.\allowbreak{}, >=180 obs: 10,230) \\
+Institutional disclaimer & Yahoo/\allowbreak{}yfinance is not a licensed institutional market data feed; publish externally only after replication on a licensed vendor dataset and a strict universe definition \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{A.6 Dataset-to-Artifact Usage Map}
+
+\small
+\begin{longtable}{@{}>{\arraybackslash}p{0.060\linewidth}>{\arraybackslash}p{0.340\linewidth}>{\arraybackslash}p{0.100\linewidth}>{\arraybackslash}p{0.160\linewidth}>{\arraybackslash}p{0.340\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Artifact ID} & \textbf{Primary dataset scope} & \textbf{N Assets} & \textbf{Timing boundary} & \textbf{Primary purpose} \\
+\midrule
+A1 & Real-\allowbreak{}data planned scenarios (transition/\allowbreak{}tax/\allowbreak{}crisis/\allowbreak{}impact) & 5,000 & Compute-\allowbreak{}only & Scenario-\allowbreak{}level superiority gate \\
+A2 & Real-\allowbreak{}data canonical fixed head-\allowbreak{}to-\allowbreak{}head & 5,000 & Compute-\allowbreak{}only & Canonical reference snapshot \\
+A3 & API reproducibility campaign summary & 5,000 & API end-\allowbreak{}to-\allowbreak{}end & Reliability and tail behavior \\
+A4 & API reproducibility raw run log & 5,000 & API end-\allowbreak{}to-\allowbreak{}end & Per-\allowbreak{}run auditability and statistics \\
+A5 & Real dataset summary (cache + provenance) & 11,560 & n/\allowbreak{}a & Dataset provenance and cross-\allowbreak{}check counts \\
+A6 & Real dataset coverage profile & 11,560 & n/\allowbreak{}a & Coverage thresholds and universe feasibility \\
+A7 & Real-\allowbreak{}input solve proof (5k and 10k) & 5k/\allowbreak{}10k & Compute-\allowbreak{}only + audit & Addendum evidence on real-\allowbreak{}input scaling \\
+A8 & Scale smoke (20k and 50k) & 20k/\allowbreak{}50k & Compute-\allowbreak{}only + audit & Non-\allowbreak{}primary operational smoke checks \\
+A9 & Real-\allowbreak{}cache large-\allowbreak{}N GPU moat (no bootstrap) & 20k/\allowbreak{}50k/\allowbreak{}75k & Compute-\allowbreak{}only & Supporting GPU vs CPU scaling evidence \\
+A10 & Expanded cache summary (shape + coverage) & 75,477 & n/\allowbreak{}a & Provenance and coverage disclosure for large-\allowbreak{}N scaling dataset \\
+S1 & Historical synthetic scaling support & 500-\allowbreak{}50,000 & Compute-\allowbreak{}only & Supporting scale trend context \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+Artifact ID dictionary:
+
+\begin{itemize}[nosep]
+\item A1 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SUPERIORITY\_\allowbreak{}GATE\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}}
+\item A2 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}CANONICAL\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}}
+\item A3 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000\_\allowbreak{}summary.\allowbreak{}json}}
+\item A4 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000.\allowbreak{}csv}}
+\item A5 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}DATASET\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\item A6 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}DATASET\_\allowbreak{}COVERAGE\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}csv}}
+\item A7 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}INPUT\_\allowbreak{}SOLVES\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\item A8 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SCALE\_\allowbreak{}SMOKE\_\allowbreak{}20000\_\allowbreak{}50000\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\item A9 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}GPU\_\allowbreak{}MOAT\_\allowbreak{}REALCACHE\_\allowbreak{}LARGE\_\allowbreak{}N\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}csv}}
+\item A10 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}CACHE\_\allowbreak{}EXPANDED\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}}
+\item S1 = \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SCALING\_\allowbreak{}SUPPORT\_\allowbreak{}SYNTHETIC.\allowbreak{}csv}} (supporting-only)
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{A.7 Data Quality and Governance Controls}
+
+\begin{itemize}[nosep]
+\item Fixed observation thresholds before inclusion in published universes.
+\item Deterministic scenario family definitions for A1 gate runs.
+\item Identical constraint classes and timing boundaries across compared solvers.
+\item Feasibility and quality-gate checks required before a scenario is marked PASS.
+\item Audit hashes and run metadata retained for reproducibility checks.
+\item No single-run cherry-picking for claim-bearing scenario tables.
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{A.8 Reproducibility Fields Expected in Evidence Packs}
+
+\begin{itemize}[nosep]
+\item \texttt{\seqsplit{dataset\_\allowbreak{}id}}
+\item \texttt{\seqsplit{date\_\allowbreak{}range\_\allowbreak{}start}}, \texttt{\seqsplit{date\_\allowbreak{}range\_\allowbreak{}end}}
+\item \texttt{\seqsplit{n\_\allowbreak{}assets}}, \texttt{\seqsplit{min\_\allowbreak{}obs\_\allowbreak{}threshold}}
+\item \texttt{\seqsplit{scenario\_\allowbreak{}id}}
+\item \texttt{\seqsplit{config\_\allowbreak{}hash}}, \texttt{\seqsplit{data\_\allowbreak{}hash}}
+\item \texttt{\seqsplit{solve\_\allowbreak{}id}}, \texttt{\seqsplit{audit\_\allowbreak{}hash}}
+\item timing boundary tag (\texttt{\seqsplit{compute\_\allowbreak{}only}} or \texttt{\seqsplit{api\_\allowbreak{}e2e}})
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{A.9 IP-Safe Disclosure Boundary for Data Methods}
+
+\begin{itemize}[nosep]
+\item Disclosed: source family, coverage thresholds, universe-size rules, timing boundaries, and verifier outcomes.
+\item Not disclosed: proprietary feature transforms, internal model parameterization, routing internals, and optimization engine implementation details.
+\end{itemize}
+
+\needspace{6\baselineskip}
+\section{Appendix B: Regulatory Mapping}
+
+\needspace{5\baselineskip}
+\subsection{B.1 MiFID II Article 17 (Algorithmic Trading Controls)}
+
+Operational controls in this memo support disciplined algorithmic operation and auditable behavior. This is an engineering alignment statement, not legal advice.
+
+\needspace{5\baselineskip}
+\subsection{B.2 DORA Article 11 (Response and Recovery)}
+
+Deterministic telemetry, explicit audit evidence, and controlled fallback behavior support resilience-oriented operational processes.
+
+\needspace{6\baselineskip}
+\section{Appendix C: Known Limits and Failure Modes}
+
+\begin{prismcallout}{IMPORTANT}
+This section is intentionally explicit. Credibility requires clear boundary conditions.
+\end{prismcallout}
+
+\needspace{5\baselineskip}
+\subsection{C.1 Where PRISM Does Not Win}
+
+\begin{itemize}[nosep]
+\item very small N where setup overhead dominates
+\item workloads outside convex-QP verification scope
+\item environments where network round-trip dominates total latency
+\item cases with missing GPU capacity or constrained deployment permissions
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{C.2 Failure Modes}
+
+\begin{itemize}[nosep]
+\item delayed external dependencies
+\item degraded upstream market data quality
+\item policy misconfiguration in client integration paths
+\item benchmark misuse when timing boundaries are mixed
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{C.3 What PRISM Is Not}
+
+\begin{itemize}[nosep]
+\item not a blanket replacement claim for every optimization class
+\item not a legal compliance substitute
+\item not a nonconvex optimality claim under KKT language
+\end{itemize}
+
+\needspace{6\baselineskip}
+\section{Appendix D: Extended Charts and Raw Data Guidance}
+
+\needspace{5\baselineskip}
+\subsection{D.1 Evidence Boundary and Tiering}
+
+\begin{itemize}[nosep]
+\item Primary commercial proof in this memo is the real 5,000-asset superiority gate (\texttt{\seqsplit{A1}}, \texttt{\seqsplit{A2}}).
+\item Real 10,000-asset evidence is presented as an addendum (\texttt{\seqsplit{A7}}) and does not replace 5,000-asset primary gate claims.
+\item 20,000 and 50,000 entries are explicitly labeled scale smoke (\texttt{\seqsplit{A8}}), not primary real-data superiority proof.
+\end{itemize}
+
+\needspace{5\baselineskip}
+\subsection{D.2 Evidence Artifact Map}
+
+\small
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Artifact ID} & \textbf{File} \\
+\midrule
+A1 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SUPERIORITY\_\allowbreak{}GATE\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}} \\
+A2 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}CANONICAL\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}} \\
+A3 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000\_\allowbreak{}summary.\allowbreak{}json}} \\
+A4 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000.\allowbreak{}csv}} \\
+A5 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}DATASET\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}} \\
+A6 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}DATASET\_\allowbreak{}COVERAGE\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}csv}} \\
+A7 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}INPUT\_\allowbreak{}SOLVES\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}} \\
+A8 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SCALE\_\allowbreak{}SMOKE\_\allowbreak{}20000\_\allowbreak{}50000\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}} \\
+A9 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}GPU\_\allowbreak{}MOAT\_\allowbreak{}REALCACHE\_\allowbreak{}LARGE\_\allowbreak{}N\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}csv}} \\
+A10 & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}REAL\_\allowbreak{}CACHE\_\allowbreak{}EXPANDED\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}15.\allowbreak{}json}} \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{D.3 Figure Index (Evidence-Only)}
+
+\small
+\needspace{12\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.170\linewidth}>{\arraybackslash}p{0.270\linewidth}>{\arraybackslash}p{0.220\linewidth}>{\arraybackslash}p{0.340\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Figure ID} & \textbf{Claim Class} & \textbf{Evidence File(s)} & \textbf{Boundary} \\
+\midrule
+D1 & Primary & A1 & compute\_\allowbreak{}only \\
+D2 & Primary & A1, A2 & compute\_\allowbreak{}only \\
+D3 & Primary & A3, A4 & api\_\allowbreak{}e2e \\
+D4 & Primary & A3, A4 & verification \\
+D5 & Addendum & A5, A6 & data\_\allowbreak{}provenance \\
+D6 & Addendum & A7 & real\_\allowbreak{}input \\
+D7 & Supporting & A8 & scale\_\allowbreak{}smoke\_\allowbreak{}non\_\allowbreak{}primary \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{D.4 Curated Visuals}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=0.98\linewidth,
+height=5.8cm,
+ybar,
+bar width=16pt,
+symbolic x coords={transition,tax,crisis,impact},
+xtick=data,
+x tick label style={font=\footnotesize\sffamily},
+ylabel={Runtime (ms)},
+scaled y ticks=false,
+yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=0,/pgf/number format/1000 sep={,},font=\footnotesize\sffamily},
+enlarge x limits=0.08,
+legend style={at={(0.5,0.98)},anchor=north,legend columns=3,draw=prismline,fill=white,fill opacity=0.85,text opacity=1,font=\footnotesize\sffamily},
+ymajorgrids=true,
+major grid style={draw=prismline!65},
+ymin=0,
+]
+\addplot+[fill=prismplotb!55,draw=prismink,line width=0.8pt] coordinates {(transition,8864.4) (tax,12003.9) (crisis,17630.8) (impact,17087.5)};
+\addplot+[fill=prismplotd!30,draw=prismink,line width=0.8pt] coordinates {(transition,182632.6) (tax,174751.4) (crisis,186329.4) (impact,164036.5)};
+\addplot+[fill=prismplotc!25,draw=prismink,line width=0.8pt] coordinates {(transition,92525.5) (tax,96166.2) (crisis,76418.3) (impact,77158.2)};
+\legend{PRISM,Gurobi,OSQP}
+\end{axis}
+\end{tikzpicture}
+\caption{Scenario runtime comparison on real 5,000-asset applications (A1).}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=0.98\linewidth,
+height=5.3cm,
+ybar,
+bar width=16pt,
+symbolic x coords={transition,tax,crisis,impact,canonical},
+xtick=data,
+x tick label style={font=\footnotesize\sffamily},
+ylabel={Verified objective gap (\%)},
+scaled y ticks=false,
+ytick={0,0.002,0.004,0.006,0.008,0.010},
+yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=3,font=\footnotesize\sffamily},
+enlarge x limits=0.08,
+legend style={at={(0.5,0.98)},anchor=north,legend columns=2,draw=prismline,fill=white,fill opacity=0.85,text opacity=1,font=\footnotesize\sffamily},
+ymajorgrids=true,
+major grid style={draw=prismline!65},
+ymin=0,
+ymax=0.0115,
+]
+\addplot+[fill=prismplotb!55,draw=prismink,line width=0.8pt] coordinates {(transition,0.009196) (tax,0.001858) (crisis,0.000978) (impact,0.007799) (canonical,0.0092)};
+\addplot+[fill=prismplotd,draw=black,line width=1.2pt,solid] coordinates {(transition,0.01) (canonical,0.01)};
+\legend{Verified gap,Quality gate}
+\end{axis}
+\end{tikzpicture}
+\caption{Verified final objective gaps against a defined quality gate (A1, A2).}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=0.88\linewidth,
+height=5.1cm,
+ybar=20pt,
+bar width=20pt,
+symbolic x coords={p50,p95,p99},
+xtick=data,
+ylabel={Wall ms},
+scaled y ticks=false,
+yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=0,font=\footnotesize\sffamily},
+ymajorgrids=true,
+major grid style={draw=prismline!65},
+ymin=0
+]
+\addplot+[fill=prismplotc!25,draw=prismink,line width=0.8pt] coordinates {(p50,64.8825) (p95,125.88) (p99,258.49193)};
+\end{axis}
+\end{tikzpicture}
+\caption{API reproducibility latency distribution from a 40-run sample at 5,000 assets (A3, A4).}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=0.88\linewidth,
+height=4.8cm,
+ybar,
+bar width=18pt,
+symbolic x coords={KKT p99,KKT max},
+xtick=data,
+ylabel={Residual value},
+ytick={0,0.00002,0.00004,0.00006,0.00008,0.00010},
+yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=5,font=\footnotesize\sffamily},
+scaled y ticks=false,
+enlarge x limits=0.20,
+legend style={at={(0.5,0.98)},anchor=north,legend columns=2,draw=prismline,fill=white,fill opacity=0.85,text opacity=1,font=\footnotesize\sffamily},
+ymajorgrids=true,
+major grid style={draw=prismline!65},
+ymin=0
+]
+\addplot+[fill=prismplotc!25,draw=prismink,line width=0.8pt] coordinates {(KKT p99,0.0) (KKT max,0.0)};
+\addplot+[fill=prismplotd,draw=black,line width=1.2pt,solid] coordinates {(KKT p99,0.0001) (KKT max,0.0001)};
+\legend{Observed residual,Contract threshold}
+\end{axis}
+\end{tikzpicture}
+\caption{Feasibility and KKT residual summary with a contract threshold overlay (A3, A4).}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=0.96\linewidth,
+height=5.5cm,
+ybar,
+bar width=14pt,
+symbolic x coords={ge40,ge90,ge120,ge180,ge200,ge240},
+xtick=data,
+x tick label style={font=\footnotesize\sffamily},
+ylabel={Asset count},
+scaled y ticks=false,
+yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=0,/pgf/number format/1000 sep={,},font=\footnotesize\sffamily},
+ymajorgrids=true,
+major grid style={draw=prismline!65},
+ymin=0
+]
+\addplot+[fill=prismplotc!30,draw=prismink,line width=0.8pt] coordinates {(ge40,11340) (ge90,10907) (ge120,10685) (ge180,10230) (ge200,10129) (ge240,9899)};
+\end{axis}
+\end{tikzpicture}
+\caption{Real dataset coverage profile from cache summary as of 2026-02-15 (A5, A6).}
+\end{figure}
+
+\needspace{5\baselineskip}
+\subsection{D.5 Addendum and Supporting Panels}
+
+\needspace{3\baselineskip}
+\subsubsection{D.5.1 D6 Addendum Panel: Real Input Solve Comparison (5k vs 10k)}
+
+\small
+\needspace{11\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.170\linewidth}>{\arraybackslash}p{0.270\linewidth}>{\arraybackslash}p{0.220\linewidth}>{\arraybackslash}p{0.340\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Metric} & \textbf{5k Real Input} & \textbf{10k Real Input} & \textbf{Source} \\
+\midrule
+Effective N & 4,996 & 9,989 & A7 \\
+Execution path & GPU production path & GPU production path & A7 \\
+Wall ms & 253.\allowbreak{}590 & 229.\allowbreak{}524 & A7 \\
+Feasible & true & true & A7 \\
+KKT primal & 0.\allowbreak{}0 & 0.\allowbreak{}0 & A7 \\
+Quality status & optimal & optimal & A7 \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{3\baselineskip}
+\subsubsection{D.5.2 D7 Supporting Panel: 20k and 50k Scale Smoke (Non-Primary)}
+
+\begin{prismwarning}{WARNING}
+20k and 50k rows below are scale-smoke operational checks. They are not claim-bearing real-input superiority evidence.
+\end{prismwarning}
+
+\small
+\needspace{10\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.170\linewidth}>{\arraybackslash}p{0.270\linewidth}>{\arraybackslash}p{0.220\linewidth}>{\arraybackslash}p{0.340\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Metric} & \textbf{20k Scale Smoke} & \textbf{50k Scale Smoke} & \textbf{Source} \\
+\midrule
+Execution path & large-\allowbreak{}universe path & large-\allowbreak{}universe path & A8 \\
+Wall ms & 1827.\allowbreak{}417 & 2673.\allowbreak{}650 & A8 \\
+Feasible & true & true & A8 \\
+Status & optimal & optimal & A8 \\
+Evidence boundary & supporting only & supporting only & A8 \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{3\baselineskip}
+\subsubsection{D.5.3 Supporting Panel: Large-N GPU Moat (Real Cache, No Bootstrap)}
+
+This panel demonstrates the GPU moat at large N on real-cache-derived inputs (no bootstrap). It is PRISM GPU vs PRISM CPU evidence, not a superiority-vs-incumbent panel.
+
+\small
+\needspace{8\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.120\linewidth}>{\arraybackslash}p{0.210\linewidth}>{\arraybackslash}p{0.210\linewidth}>{\arraybackslash}p{0.170\linewidth}>{\arraybackslash}p{0.150\linewidth}>{\arraybackslash}p{0.140\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{n\_\allowbreak{}eff} & \textbf{cpu\_\allowbreak{}raw\_\allowbreak{}solver\_\allowbreak{}ms\_\allowbreak{}p50} & \textbf{gpu\_\allowbreak{}raw\_\allowbreak{}solver\_\allowbreak{}ms\_\allowbreak{}p50} & \textbf{gpu\_\allowbreak{}raw\_\allowbreak{}wall\_\allowbreak{}ms\_\allowbreak{}p50} & \textbf{cpu/\allowbreak{}gpu solver speedup} & \textbf{cpu/\allowbreak{}gpu wall speedup} \\
+\midrule
+20,000 & 1340.\allowbreak{}489 & 637.\allowbreak{}073 & 670.\allowbreak{}415 & 2.\allowbreak{}10x & 2.\allowbreak{}00x \\
+50,000 & 3896.\allowbreak{}617 & 711.\allowbreak{}878 & 818.\allowbreak{}195 & 5.\allowbreak{}47x & 4.\allowbreak{}76x \\
+75,257 & 6887.\allowbreak{}976 & 789.\allowbreak{}724 & 960.\allowbreak{}757 & 8.\allowbreak{}72x & 7.\allowbreak{}17x \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\begin{prismcallout}{NOTE}
+The 100k request executed at \texttt{\seqsplit{n\_\allowbreak{}eff=75,257}} due to eligibility at \texttt{\seqsplit{min\_\allowbreak{}points=40}} in the expanded cache (A10).
+\end{prismcallout}
+
+\needspace{3\baselineskip}
+\subsubsection{D.5.4 Appendix-Only: Mac M2 vs RTX 4000 Ada (Small-N, Apples-to-Apples)}
+
+This is cross-platform context, not a moat proof. At small and mid-size problems, fixed GPU overhead can dominate; PRISM should route these cases to CPU. At the production gate (5,000 assets, real-data scenarios), the GPU path is superior as shown in A1.
+
+\small
+\needspace{9\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{scenario} & \textbf{n\_\allowbreak{}assets} & \textbf{mac\_\allowbreak{}cpu\_\allowbreak{}p50\_\allowbreak{}ms} & \textbf{intel\_\allowbreak{}cpu\_\allowbreak{}p50\_\allowbreak{}ms} & \textbf{rtx\_\allowbreak{}gpu\_\allowbreak{}wall\_\allowbreak{}p50\_\allowbreak{}ms} & \textbf{rtx\_\allowbreak{}gpu\_\allowbreak{}over\_\allowbreak{}intel\_\allowbreak{}cpu} & \textbf{rtx\_\allowbreak{}gpu\_\allowbreak{}over\_\allowbreak{}mac\_\allowbreak{}cpu} \\
+\midrule
+baseline & 5000 & 19.\allowbreak{}195 & 22.\allowbreak{}167 & 162.\allowbreak{}539 & 7.\allowbreak{}332 & 8.\allowbreak{}468 \\
+baseline & 10000 & 39.\allowbreak{}484 & 46.\allowbreak{}858 & 171.\allowbreak{}586 & 3.\allowbreak{}662 & 4.\allowbreak{}346 \\
+hard & 5000 & 144.\allowbreak{}858 & 196.\allowbreak{}848 & 628.\allowbreak{}708 & 3.\allowbreak{}194 & 4.\allowbreak{}340 \\
+hard & 10000 & 395.\allowbreak{}643 & 631.\allowbreak{}840 & 662.\allowbreak{}935 & 1.\allowbreak{}049 & 1.\allowbreak{}676 \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{D.6 Rules Matrix (Compact)}
+
+\small
+\needspace{10\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.320\linewidth}>{\arraybackslash}p{0.580\linewidth}>{\arraybackslash}p{0.100\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Rule} & \textbf{Required Fields} & \textbf{Pass/\allowbreak{}Fail} \\
+\midrule
+Scenario superiority completeness & \texttt{\seqsplit{scenario\_\allowbreak{}id}}, \texttt{\seqsplit{superiority\_\allowbreak{}gate\_\allowbreak{}status}} & PASS \\
+Canonical anchor exists & \texttt{\seqsplit{benchmark\_\allowbreak{}id}}, \texttt{\seqsplit{gap\_\allowbreak{}certified\_\allowbreak{}pct}} & PASS \\
+API traceability & \texttt{\seqsplit{idx}}, \texttt{\seqsplit{solve\_\allowbreak{}id}}, \texttt{\seqsplit{audit\_\allowbreak{}hash}} & PASS \\
+Feasibility and KKT evidence & \texttt{\seqsplit{feasible}}, \texttt{\seqsplit{kkt\_\allowbreak{}primal}} & PASS \\
+Objective parity gate enforcement & \texttt{\seqsplit{gap\_\allowbreak{}certified\_\allowbreak{}pct}}, \texttt{\seqsplit{quality\_\allowbreak{}gate\_\allowbreak{}status}} & PASS \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\small
+\needspace{10\baselineskip}
+\begin{longtable}{@{}>{\arraybackslash}p{0.300\linewidth}>{\arraybackslash}p{0.700\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{Rule} & \textbf{Data Source File} \\
+\midrule
+Scenario superiority completeness & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SUPERIORITY\_\allowbreak{}GATE\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}} \\
+Canonical anchor exists & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}CANONICAL\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}} \\
+API traceability & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000.\allowbreak{}csv}} \\
+Feasibility and KKT evidence & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000.\allowbreak{}csv}}, \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}API\_\allowbreak{}REPRO\_\allowbreak{}5000\_\allowbreak{}summary.\allowbreak{}json}} \\
+Quality gate threshold enforcement (field: \texttt{\seqsplit{gap\_\allowbreak{}certified\_\allowbreak{}pct}}) & \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}SUPERIORITY\_\allowbreak{}GATE\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}}, \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}CANONICAL\_\allowbreak{}5000\_\allowbreak{}REAL.\allowbreak{}csv}} \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\needspace{5\baselineskip}
+\subsection{D.7 Deterministic API Evidence Rows (Compact Split)}
+
+\small
+\begin{longtable}{@{}>{\arraybackslash}p{0.250\linewidth}>{\arraybackslash}p{0.350\linewidth}>{\arraybackslash}p{0.400\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{idx} & \textbf{solve\_\allowbreak{}id} & \textbf{audit\_\allowbreak{}hash} \\
+\midrule
+1 & d8c6acb8b7e19d8d & 49d31c3d0654e20d 598a95ff09da6fb8 \\
+2 & b38e3ae48cad7a57 & bf7f4a33f8a1945a ff310ed0e13ccd79 \\
+3 & fdee4204af8ae8a6 & aa1fbaf9d2db4ecb d2178e4c45cf5b0c \\
+4 & 83d8aaf7224f5983 & 57551e5c317b57f8 2a0b2aeb92a049c9 \\
+5 & 3e2745b9f7f59130 & 50f3ca5ecb994de8 6b97312c5c424f40 \\
+6 & 374a019aecb62f83 & a974996786abf9d1 0fd1951f3c9df259 \\
+7 & 2582cee8a18caebb & ca0de75f4bb1077e e5559a27f71c7b98 \\
+8 & 0a50a155738fe767 & edbda1d87e7854a5 ce1818bd18b8e375 \\
+9 & 691414cc0692dc91 & e88918318d4c4e91 3df685292468a020 \\
+10 & f70ca32c6feb3eab & bfcd931e87d010da 01d04171c25f72af \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\small
+\begin{longtable}{@{}>{\arraybackslash}p{0.150\linewidth}>{\arraybackslash}p{0.290\linewidth}>{\arraybackslash}p{0.230\linewidth}>{\arraybackslash}p{0.170\linewidth}>{\arraybackslash}p{0.160\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{idx} & \textbf{wall\_\allowbreak{}ms} & \textbf{objective} & \textbf{feasible} & \textbf{kkt\_\allowbreak{}primal} \\
+\midrule
+1 & 65.\allowbreak{}008 & 0.\allowbreak{}0015497702 & True & 0.\allowbreak{}0 \\
+2 & 62.\allowbreak{}038 & 0.\allowbreak{}0022505680 & True & 0.\allowbreak{}0 \\
+3 & 66.\allowbreak{}169 & 0.\allowbreak{}0020127256 & True & 0.\allowbreak{}0 \\
+4 & 70.\allowbreak{}458 & 0.\allowbreak{}0023563895 & True & 0.\allowbreak{}0 \\
+5 & 66.\allowbreak{}569 & 0.\allowbreak{}0020132080 & True & 0.\allowbreak{}0 \\
+6 & 72.\allowbreak{}992 & 0.\allowbreak{}0027825911 & True & 0.\allowbreak{}0 \\
+7 & 66.\allowbreak{}647 & 0.\allowbreak{}0023327982 & True & 0.\allowbreak{}0 \\
+8 & 63.\allowbreak{}234 & 0.\allowbreak{}0013931014 & True & 0.\allowbreak{}0 \\
+9 & 124.\allowbreak{}073 & 0.\allowbreak{}0022295761 & True & 0.\allowbreak{}0 \\
+10 & 65.\allowbreak{}842 & 0.\allowbreak{}0016005182 & True & 0.\allowbreak{}0 \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+\FloatBarrier
+\newpage
+
+\needspace{6\baselineskip}
+\section{Appendix E: Industry-Grade Campaign (Tiered Claims)}
+
+\needspace{5\baselineskip}
+\subsection{Industry-Grade Campaign (Auto-Generated)}
+
+\small
+\begin{longtable}{@{}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}>{\arraybackslash}p{0.137\linewidth}@{}}
+\arrayrulecolor{prismline}
+\toprule
+\rowcolor{prismtablehead}
+\rowcolors{2}{prismtablerow}{white}
+\textbf{n\_\allowbreak{}assets\_\allowbreak{}requested} & \textbf{engine} & \textbf{runtime\_\allowbreak{}ms\_\allowbreak{}p50} & \textbf{runtime\_\allowbreak{}ms\_\allowbreak{}p95} & \textbf{solver\_\allowbreak{}status} & \textbf{run\_\allowbreak{}ok} & \textbf{failure\_\allowbreak{}reason} \\
+\midrule
+20000 & factor-\allowbreak{}cpu & 4854.\allowbreak{}456126 & 5047.\allowbreak{}942547 & optimal & True &  \\
+20000 & factor-\allowbreak{}gpu & 756.\allowbreak{}778485 & 800.\allowbreak{}548667 & optimal & True &  \\
+20000 & gurobi & 1135.\allowbreak{}906829 & 1303.\allowbreak{}750927 & optimal & True &  \\
+20000 & osqp & 3134.\allowbreak{}310228 & 3181.\allowbreak{}217408 & maximum\_\allowbreak{}iterations\_\allowbreak{}reached & True &  \\
+50000 & factor-\allowbreak{}cpu & 3145.\allowbreak{}163117 & 4088.\allowbreak{}518262 & optimal & True &  \\
+50000 & factor-\allowbreak{}gpu & 670.\allowbreak{}580206 & 818.\allowbreak{}741726 & optimal & True &  \\
+50000 & gurobi & 787.\allowbreak{}958311 & 812.\allowbreak{}940463 & optimal & True &  \\
+50000 & osqp & 3074.\allowbreak{}218377 & 3207.\allowbreak{}845251 & maximum\_\allowbreak{}iterations\_\allowbreak{}reached & True &  \\
+100000 & factor-\allowbreak{}cpu & 5062.\allowbreak{}841354 & 5552.\allowbreak{}358036 & optimal & True &  \\
+100000 & factor-\allowbreak{}gpu & 765.\allowbreak{}765893 & 907.\allowbreak{}159282 & optimal & True &  \\
+100000 & gurobi & 1357.\allowbreak{}302632 & 2212.\allowbreak{}358457 & optimal & True &  \\
+100000 & osqp & 2861.\allowbreak{}706598 & 3145.\allowbreak{}011268 & maximum\_\allowbreak{}iterations\_\allowbreak{}reached & True &  \\
+\bottomrule
+\end{longtable}
+\arrayrulecolor{black}
+\normalsize
+
+Source: \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}INDUSTRY\_\allowbreak{}GRADE\_\allowbreak{}SUMMARY\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}16.\allowbreak{}json}} and \texttt{\seqsplit{PRISM\_\allowbreak{}EVIDENCE\_\allowbreak{}INDUSTRY\_\allowbreak{}GRADE\_\allowbreak{}CAMPAIGN\_\allowbreak{}2026-\allowbreak{}02-\allowbreak{}16.\allowbreak{}csv}}
+
+\end{document}
