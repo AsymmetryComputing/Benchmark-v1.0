@@ -31,7 +31,7 @@ You should see:
 
 ### 2. Get an API key
 
-Email **info@asymmetrycomputing.com** and request a free Developer key. You'll receive a key that looks like `pk_...`.
+Email **contact@asymmetrycomputing.com** and request a free Developer key. You'll receive a key that looks like `pk_...`.
 
 ### 3. Check system status (requires key)
 
@@ -176,7 +176,7 @@ X-PRISM-Key: YOUR_KEY_HERE
 You can independently verify PRISM's performance claims using only the API. **No software to install, no packages to download.**
 
 ### Step 1: Get a key
-Email **info@asymmetrycomputing.com** for a free Developer key.
+Email **contact@asymmetrycomputing.com** for a free Developer key.
 
 ### Step 2: Run the reproducibility test
 Copy this Python script, paste your key, and run it. It performs 40 consecutive solves at N=5,000 assets:
@@ -308,5 +308,5 @@ Copyright © 2026 Asymmetry Computing. All rights reserved.
 
 ## Contact
 
-- **API Keys & Technical**: info@asymmetrycomputing.com
+- **API Keys & Technical**: contact@asymmetrycomputing.com
 - **Website**: [asymmetrycomputing.com](https://asymmetrycomputing.com)
